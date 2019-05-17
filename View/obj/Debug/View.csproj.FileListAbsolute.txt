@@ -9,3 +9,14 @@ C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.exe
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.pdb
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.Home.resources
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.Reports.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.exe.config
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.exe
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.pdb
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Home.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Reports.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.exe
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.pdb
