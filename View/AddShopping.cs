@@ -41,5 +41,44 @@ namespace View
         {
 
         }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home route = new Home();
+            route.ShowDialog();
+            this.Close();
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Reports route = new Reports();
+            route.ShowDialog();
+            this.Close();
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AddShopping_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddClient route = new AddClient();
+            route.ShowDialog();
+            this.Close();
+        }
     }
 }

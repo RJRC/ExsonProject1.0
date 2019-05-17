@@ -20,8 +20,9 @@ namespace View
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home r = new Home();
-            r.ShowDialog();
+            Home route = new Home();
+            route.ShowDialog();
+            this.Close();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

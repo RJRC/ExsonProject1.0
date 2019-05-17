@@ -20,3 +20,5 @@ C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.GenerateRe
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.exe
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.pdb
+C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.AddClient.resources
+C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.AddShopping.resources

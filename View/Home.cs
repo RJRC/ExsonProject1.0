@@ -15,9 +15,7 @@ namespace View
         public Home()
         {
             InitializeComponent();
-
             
-            this.label1.AutoSize = true;
             
         }
 
@@ -63,14 +61,18 @@ namespace View
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AddShopping route = new AddShopping();
+            route.ShowDialog();
+            this.Close();
         }
 
         private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Reports r = new Reports();
-            r.ShowDialog();
+            Reports route = new Reports();
+            route.ShowDialog();
+            this.Close();
         }
     }
 }
