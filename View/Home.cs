@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
-        public Form1()
+        public Home()
         {
             InitializeComponent();
 
@@ -59,6 +59,18 @@ namespace View
         private void panel2_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Reports r = new Reports();
+            r.ShowDialog();
         }
     }
 }
