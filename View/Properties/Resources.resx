@@ -121,4 +121,12 @@
   <data name="logoCompuElecta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoCompuElecta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+
+
+  <data name="logo blanco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo blanco1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leyenda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leyenda1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

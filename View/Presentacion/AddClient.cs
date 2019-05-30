@@ -35,29 +35,36 @@ namespace View
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Home route = new Home();
-            route.ShowDialog();
+           // Home route = new Home();
+            //route.ShowDialog();
             this.Close();
         }
 
-        private void editasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AddShopping route = new AddShopping();
-            route.ShowDialog();
-            this.Close();
-        }
+      
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void Label6_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Reports route = new Reports();
-            route.ShowDialog();
+
+        }
+
+        private void LbOrderNum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
