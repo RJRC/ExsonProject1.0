@@ -73,24 +73,33 @@ namespace View
         {
             //Save Data Client
 
-            //Abrir conexion
-            connection.Open();
-            //Seleccionar Stored y conexion
-            MySqlCommand mySqlCom = new MySqlCommand("AddOrEditClient",connection);
-            //Definir que se va a usar el stored
-            mySqlCom.CommandType = CommandType.StoredProcedure;
-            //Parametros recibe el stored procedure
-            mySqlCom.Parameters.AddWithValue("_IdParty",idParty);
-            mySqlCom.Parameters.AddWithValue("_Name", txtName.Text.Trim());
-            mySqlCom.Parameters.AddWithValue("_LastName1", txtLastName1.Text.Trim());
-            mySqlCom.Parameters.AddWithValue("_LastName2", txtLastName2.Text.Trim());
-            mySqlCom.Parameters.AddWithValue("_Telephone1", Int32.Parse(txtPhone1.Text.Trim()));
-            mySqlCom.Parameters.AddWithValue("_Telephone2", Int32.Parse(txtPhone2.Text.Trim()));
-            mySqlCom.Parameters.AddWithValue("_Email", txtMail.Text.Trim());
-            mySqlCom.ExecuteNonQuery();
-            //Mensaje de completado
-            MessageBox.Show("Cliente Guardado");
-            this.Close();
+            //Por aquello de que se caiga try y catch
+            try
+            {
+                //Abrir conexion
+                connection.Open();
+                //Seleccionar Stored y conexion
+                MySqlCommand mySqlCom = new MySqlCommand("AddOrEditClient", connection);
+                //Definir que se va a usar el stored
+                mySqlCom.CommandType = CommandType.StoredProcedure;
+                //Parametros recibe el stored procedure
+                mySqlCom.Parameters.AddWithValue("_IdParty", idParty);
+                mySqlCom.Parameters.AddWithValue("_Name", txtName.Text.Trim());
+                mySqlCom.Parameters.AddWithValue("_LastName1", txtLastName1.Text.Trim());
+                mySqlCom.Parameters.AddWithValue("_LastName2", txtLastName2.Text.Trim());
+                mySqlCom.Parameters.AddWithValue("_Telephone1", Int32.Parse(txtPhone1.Text.Trim()));
+                mySqlCom.Parameters.AddWithValue("_Telephone2", Int32.Parse(txtPhone2.Text.Trim()));
+                mySqlCom.Parameters.AddWithValue("_Email", txtMail.Text.Trim());
+                mySqlCom.ExecuteNonQuery();
+                //Mensaje de completado
+                MessageBox.Show("Cliente Guardado");
+                this.Close();
+            }
+            catch (MySqlException ex) {
+                MessageBox.Show(ex.ToString());
+            }
+            //Cerrar Conexion
+            connection.Close();
 
         }
 
