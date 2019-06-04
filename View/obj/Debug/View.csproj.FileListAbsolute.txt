@@ -11,9 +11,7 @@ C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.exe.config
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.exe
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\View.pdb
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csprojAssemblyReference.cache
-C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Home.resources
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Properties.Resources.resources
-C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Reports.resources
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.GenerateResource.cache
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.exe
@@ -34,6 +32,7 @@ C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.Presentacion.Prin
 C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.Presentacion.Add.resources
 C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.Presentacion.Reports.resources
 C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.Presentacion.Customer.resources
+<<<<<<< HEAD
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.Presentacion.Add.resources
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.Presentacion.Customer.resources
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.Presentacion.Home.resources
@@ -48,3 +47,16 @@ C:\Users\rolan\source\repos\ExsonProjectSoftware\View\bin\Debug\BLL.pdb
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\bin\Debug\ADL.pdb
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\bin\Debug\MySql.Data.xml
 C:\Users\rolan\source\repos\ExsonProjectSoftware\View\obj\Debug\View.csproj.CopyComplete
+=======
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.AddClient.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.Add.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.Customer.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.Home.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.Principal.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.Reports.resources
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\MySql.Data.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\Google.Protobuf.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\MySql.Data.xml
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CopyComplete
+>>>>>>> 974fc57bc08338e8b77ca5d6bed7798e9e9c7afb
