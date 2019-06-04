@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+
 
 namespace View
 {
@@ -16,6 +18,8 @@ namespace View
         {
             InitializeComponent();
         }
+
+        private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -60,12 +64,36 @@ namespace View
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            string name = txtName.Text;
+            string lastName = txtLastName1.Text;
+            string lastName2 = txtLastName2.Text;
+
+            string phoneNumber1 = txtPhone1.Text;
+            string phoneNumber2 = txtPhone2.Text;
+
+            string email = txtMail.Text;
+
+            businessLogicLayer.addClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
+
+            this.Close();
 
         }
+
+        
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddClient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

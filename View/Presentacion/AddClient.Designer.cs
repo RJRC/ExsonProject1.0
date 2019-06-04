@@ -54,6 +54,33 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel3.Location = new System.Drawing.Point(0, 314);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(642, 10);
+            panel3.TabIndex = 48;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            panel4.Location = new System.Drawing.Point(0, 10);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(10, 304);
+            panel4.TabIndex = 49;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            panel5.Location = new System.Drawing.Point(632, 10);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(10, 304);
+            panel5.TabIndex = 49;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -115,6 +142,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(180, 29);
             this.txtName.TabIndex = 29;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // btnSave
             // 
@@ -229,33 +257,6 @@
             this.panel2.Size = new System.Drawing.Size(642, 10);
             this.panel2.TabIndex = 47;
             // 
-            // panel3
-            // 
-            panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
-            panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel3.Location = new System.Drawing.Point(0, 314);
-            panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(642, 10);
-            panel3.TabIndex = 48;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
-            panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            panel4.Location = new System.Drawing.Point(0, 10);
-            panel4.Name = "panel4";
-            panel4.Size = new System.Drawing.Size(10, 304);
-            panel4.TabIndex = 49;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
-            panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            panel5.Location = new System.Drawing.Point(632, 10);
-            panel5.Name = "panel5";
-            panel5.Size = new System.Drawing.Size(10, 304);
-            panel5.TabIndex = 49;
-            // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +287,7 @@
             this.Name = "AddClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Cliente";
+            this.Load += new System.EventHandler(this.AddClient_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

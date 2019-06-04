@@ -132,9 +132,15 @@
     <None Include="Resources\logo blanco1.png" />
     <None Include="Resources\logoCompuElecta.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Datos\" />
-    <Folder Include="Negocio\" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{16255e00-178b-4209-b46d-1a952dd4004f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
