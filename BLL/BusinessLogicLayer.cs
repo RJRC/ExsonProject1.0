@@ -26,5 +26,12 @@ namespace BLL
            return accessDataLayer.getClientsFromDB();
         }
 
+        
+
+        public DataTable showOrders()
+        {
+            return accessDataLayer.getOrderFromDB();
+        }
+
     }
 }

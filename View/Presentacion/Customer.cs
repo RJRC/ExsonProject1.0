@@ -13,6 +13,8 @@ namespace View.Presentacion
 {
     public partial class Customer : Form
     {
+        
+
         public Customer()
         {
             InitializeComponent();
