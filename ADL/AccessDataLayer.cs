@@ -50,8 +50,79 @@ namespace ADL
 
            
         }
-        
-        
+
+        public DataTable getClientsFromDB()
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "showClientsProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+              
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
+
+
+        public DataTable getOrderFromDB()
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "showOrdersProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
+
+
 
     }
 }

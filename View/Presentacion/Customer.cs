@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace View.Presentacion
 {
@@ -15,6 +16,20 @@ namespace View.Presentacion
         public Customer()
         {
             InitializeComponent();
+            loadCustomerView();
+        }
+
+        private BusinessLogicLayer bll = new BusinessLogicLayer();
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void loadCustomerView() {
+
+            dataGridView1.DataSource = bll.showClients();
+
         }
     }
 }
