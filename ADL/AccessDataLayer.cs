@@ -12,31 +12,32 @@ namespace ADL
     public class AccessDataLayer
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=root; Database=compuelecta; Port=3306");
+        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=Tortuguero.2011.; Database=compuelecta; Port=3306");
 
 
-        public void addClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email) {
-            
+        public void addOrEditClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email, int idParty) {
 
             try
             {
                 con.Open();
 
-                string storedProcedure = "addClientProcedure";
+                string storedProcedure = "AddOrEditClient";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@nameVar", name);
+                cmd.Parameters.AddWithValue("_IdParty", idParty);
 
-                cmd.Parameters.AddWithValue("@lastName1Var", lastName1);
+                cmd.Parameters.AddWithValue("_Name", idParty);
 
-                cmd.Parameters.AddWithValue("@lastName2Var", lastName2);
+                cmd.Parameters.AddWithValue("_LastName1", lastName1);
 
-                cmd.Parameters.AddWithValue("@phoneNumber1Var", phoneNumber1);
+                cmd.Parameters.AddWithValue("_LastName2", lastName2);
 
-                cmd.Parameters.AddWithValue("@phoneNumber2Var", phoneNumber2);
+                cmd.Parameters.AddWithValue("_Telephone1", phoneNumber1);
 
-                cmd.Parameters.AddWithValue("@emailVar", email);
+                cmd.Parameters.AddWithValue("_Telephone2", phoneNumber2);
+
+                cmd.Parameters.AddWithValue("_Email", email);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
                

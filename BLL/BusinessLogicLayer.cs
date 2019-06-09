@@ -15,9 +15,19 @@ namespace BLL
         private AccessDataLayer accessDataLayer = new AccessDataLayer();
 
 
-        public void addClient(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email) {
+        public void addOrEditClien(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email/*, String id*/) {
 
-            accessDataLayer.addClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email);
+            int idParty = 0;
+
+          /*  if (!id.Equals("0") && !id.Equals(""))
+            {
+                idParty = 0;
+            }
+            else {
+                idParty = Int32.Parse(id);
+            }*/
+
+            accessDataLayer.addOrEditClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email, idParty);
 
         }
 

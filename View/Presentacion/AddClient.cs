@@ -77,7 +77,7 @@ namespace View
 
             string email = txtMail.Text;
 
-            businessLogicLayer.addClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
+            businessLogicLayer.addOrEditClien(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
 
             this.Close();
 

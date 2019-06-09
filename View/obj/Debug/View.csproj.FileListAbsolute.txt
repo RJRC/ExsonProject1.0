@@ -60,3 +60,7 @@ C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BouncyCastle.Crypto.dl
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\MySql.Data.xml
 C:\Users\DELL\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CopyComplete
 >>>>>>> 974fc57bc08338e8b77ca5d6bed7798e9e9c7afb
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BLL.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\ADL.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BLL.pdb
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\ADL.pdb
