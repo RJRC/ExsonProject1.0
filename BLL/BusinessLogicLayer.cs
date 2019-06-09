@@ -27,11 +27,24 @@ namespace BLL
         }
 
         
-
+        
         public DataTable showOrders()
         {
             return accessDataLayer.getOrderFromDB();
         }
+
+        public DataTable showSearchOrders(string search)
+        {
+            return accessDataLayer.serchOrdersInDB(search);
+        }
+
+        public void deleteOrderById(int idOrder)
+        {
+            accessDataLayer.deleteOrderByIdInDB(idOrder);
+        }
+
+
+        
 
     }
 }

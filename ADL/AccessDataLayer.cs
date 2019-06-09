@@ -123,6 +123,72 @@ namespace ADL
         }
 
 
+        public DataTable serchOrdersInDB(string search)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "searchOrderProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@searchVar", search);
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
+
+        public void deleteOrderByIdInDB(int idOrder)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "deleteOrderByIdProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idVar", idOrder);
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+        }
+
+
 
     }
 }

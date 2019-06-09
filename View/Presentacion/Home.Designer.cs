@@ -101,6 +101,7 @@
             this.txtFind.Size = new System.Drawing.Size(600, 29);
             this.txtFind.TabIndex = 14;
             this.txtFind.Text = "Buscar";
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // dataGridView1
             // 
