@@ -15,19 +15,10 @@ namespace BLL
         private AccessDataLayer accessDataLayer = new AccessDataLayer();
 
 
-        public void addOrEditClien(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email/*, String id*/) {
+        public void addOrEditClien(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email, String id) {
 
-            int idParty = 0;
 
-          /*  if (!id.Equals("0") && !id.Equals(""))
-            {
-                idParty = 0;
-            }
-            else {
-                idParty = Int32.Parse(id);
-            }*/
-
-            accessDataLayer.addOrEditClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email, idParty);
+            accessDataLayer.addOrEditClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email, int.Parse(id));
 
         }
 
@@ -46,6 +37,11 @@ namespace BLL
         public DataTable showSearchOrders(string search)
         {
             return accessDataLayer.serchOrdersInDB(search);
+        }
+
+        public DataTable showSearchClients(String search)
+        {
+            return accessDataLayer.serchClientsInDB(int.Parse(search));
         }
 
         public void deleteOrderById(int idOrder)

@@ -22,6 +22,24 @@ namespace View
             InitializeComponent();
         }
 
+        public AddClient(string id)
+        {
+
+            DataTable dtcust = businessLogicLayer.showSearchClients(id);
+
+            InitializeComponent();
+
+            idLbl.Text = id;
+            txtName.Text = dtcust.Rows[0]["Nombre"].ToString(); 
+            txtLastName1.Text = dtcust.Rows[0]["Primer Apellido"].ToString();
+            txtLastName2.Text = dtcust.Rows[0]["Segundo Apellido"].ToString();
+            txtPhone1.Text = dtcust.Rows[0]["Teléfono 1"].ToString();
+            txtPhone2.Text = dtcust.Rows[0]["Teléfono 2"].ToString();
+            txtMail.Text = dtcust.Rows[0]["Correo Electrónico"].ToString();
+             
+            
+        }
+
         private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
 
         private void label3_Click(object sender, EventArgs e)
@@ -68,6 +86,7 @@ namespace View
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
+            string id = idLbl.Text;
             string name = txtName.Text;
             string lastName = txtLastName1.Text;
             string lastName2 = txtLastName2.Text;
@@ -77,7 +96,7 @@ namespace View
 
             string email = txtMail.Text;
 
-            businessLogicLayer.addOrEditClien(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
+            businessLogicLayer.addOrEditClien(name, lastName, lastName2, phoneNumber1, phoneNumber2, email,id);
 
             this.Close();
 
@@ -101,5 +120,6 @@ namespace View
         {
 
         }
+
     }
 }

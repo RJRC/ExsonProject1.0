@@ -27,7 +27,7 @@ namespace ADL
 
                 cmd.Parameters.AddWithValue("_IdParty", idParty);
 
-                cmd.Parameters.AddWithValue("_Name", idParty);
+                cmd.Parameters.AddWithValue("_Name", name);
 
                 cmd.Parameters.AddWithValue("_LastName1", lastName1);
 
@@ -54,8 +54,6 @@ namespace ADL
 
         public DataTable getClientsFromDB()
         {
-
-
             try
             {
                 con.Open();
@@ -64,12 +62,45 @@ namespace ADL
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();  
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+        }
+
+        public DataTable serchClientsInDB(int search)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "searchIdClientProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("_idParty", search);
+
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 DataSet ds = new DataSet();
                 DataTable dataTable = new DataTable();
-              
+
 
                 ds.Tables.Add(dataTable);
                 ds.EnforceConstraints = false;
@@ -86,7 +117,6 @@ namespace ADL
 
 
         }
-
 
         public DataTable getOrderFromDB()
         {
