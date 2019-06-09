@@ -16,18 +16,18 @@ namespace View
     public partial class AddClient : Form
     {
         //Cadena de conexion a la base de datos
-         String connectionString = @"server=localhost; port=3306; user id=root; password=Tortuguero.2011.; database=compuelecta;";
+        // String connectionString = @"server=localhost; port=3306; user id=root; password=Tortuguero.2011.; database=compuelecta;";
         
-         MySqlConnection connection;
+     //    MySqlConnection connection;
 
-        int idParty = 0;
+     //   int idParty = 0;
 
 
         public AddClient()
         {
-            InitializeComponent();
-            //Inizializar conexion
-            connection = new MySqlConnection(connectionString);
+     //       InitializeComponent();
+     //       //Inizializar conexion
+     //       connection = new MySqlConnection(connectionString);
         }
 
         private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
@@ -75,7 +75,6 @@ namespace View
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             string name = txtName.Text;
             string lastName = txtLastName1.Text;
             string lastName2 = txtLastName2.Text;
@@ -88,7 +87,7 @@ namespace View
             businessLogicLayer.addClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
 
             this.Close();
-=======
+/*
             //Save Data Client
 
             //Por aquello de que se caiga try y catch
@@ -118,7 +117,7 @@ namespace View
             }
             //Cerrar Conexion
             connection.Close();
->>>>>>> 974fc57bc08338e8b77ca5d6bed7798e9e9c7afb
+*/
 
         }
 
