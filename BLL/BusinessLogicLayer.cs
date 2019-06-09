@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,29 @@ namespace BLL
         }
 
 
+        public DataTable showClients() {
+           return accessDataLayer.getClientsFromDB();
+        }
 
+        
+        
+        public DataTable showOrders()
+        {
+            return accessDataLayer.getOrderFromDB();
+        }
+
+        public DataTable showSearchOrders(string search)
+        {
+            return accessDataLayer.serchOrdersInDB(search);
+        }
+
+        public void deleteOrderById(int idOrder)
+        {
+            accessDataLayer.deleteOrderByIdInDB(idOrder);
+        }
+
+
+        
 
     }
 }

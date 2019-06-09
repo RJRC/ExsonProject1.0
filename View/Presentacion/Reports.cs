@@ -7,14 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace View.Presentacion
 {
     public partial class Reports : Form
     {
+        private BusinessLogicLayer bll = new BusinessLogicLayer();
+
         public Reports()
         {
             InitializeComponent();
+            loadOrderView();
+        }
+
+        public void loadOrderView()
+        {
+
+            dataGridView1.DataSource = bll.showOrders();
+
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -60,6 +71,11 @@ namespace View.Presentacion
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

@@ -15,19 +15,11 @@ namespace View
 {
     public partial class AddClient : Form
     {
-        //Cadena de conexion a la base de datos
-        // String connectionString = @"server=localhost; port=3306; user id=root; password=Tortuguero.2011.; database=compuelecta;";
-        
-     //    MySqlConnection connection;
-
-     //   int idParty = 0;
 
 
         public AddClient()
         {
-     //       InitializeComponent();
-     //       //Inizializar conexion
-     //       connection = new MySqlConnection(connectionString);
+            InitializeComponent();
         }
 
         private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
@@ -75,6 +67,7 @@ namespace View
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+
             string name = txtName.Text;
             string lastName = txtLastName1.Text;
             string lastName2 = txtLastName2.Text;
@@ -87,37 +80,8 @@ namespace View
             businessLogicLayer.addClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
 
             this.Close();
-/*
-            //Save Data Client
 
-            //Por aquello de que se caiga try y catch
-            try
-            {
-                //Abrir conexion
-                connection.Open();
-                //Seleccionar Stored y conexion
-                MySqlCommand mySqlCom = new MySqlCommand("AddOrEditClient", connection);
-                //Definir que se va a usar el stored
-                mySqlCom.CommandType = CommandType.StoredProcedure;
-                //Parametros recibe el stored procedure
-                mySqlCom.Parameters.AddWithValue("_IdParty", idParty);
-                mySqlCom.Parameters.AddWithValue("_Name", txtName.Text.Trim());
-                mySqlCom.Parameters.AddWithValue("_LastName1", txtLastName1.Text.Trim());
-                mySqlCom.Parameters.AddWithValue("_LastName2", txtLastName2.Text.Trim());
-                mySqlCom.Parameters.AddWithValue("_Telephone1", Int32.Parse(txtPhone1.Text.Trim()));
-                mySqlCom.Parameters.AddWithValue("_Telephone2", Int32.Parse(txtPhone2.Text.Trim()));
-                mySqlCom.Parameters.AddWithValue("_Email", txtMail.Text.Trim());
-                mySqlCom.ExecuteNonQuery();
-                //Mensaje de completado
-                MessageBox.Show("Cliente Guardado");
-                this.Close();
-            }
-            catch (MySqlException ex) {
-                MessageBox.Show(ex.ToString());
-            }
-            //Cerrar Conexion
-            connection.Close();
-*/
+            //Save Data Client
 
         }
 
