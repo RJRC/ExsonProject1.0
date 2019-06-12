@@ -15,9 +15,10 @@ namespace BLL
         private AccessDataLayer accessDataLayer = new AccessDataLayer();
 
 
-        public void addClient(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email) {
+        public void addOrEditClien(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email, String id) {
 
-            accessDataLayer.addClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email);
+
+            accessDataLayer.addOrEditClientToDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email, int.Parse(id));
 
         }
 
@@ -27,11 +28,29 @@ namespace BLL
         }
 
         
-
+        
         public DataTable showOrders()
         {
             return accessDataLayer.getOrderFromDB();
         }
+
+        public DataTable showSearchOrders(string search)
+        {
+            return accessDataLayer.serchOrdersInDB(search);
+        }
+
+        public DataTable showSearchClients(String search)
+        {
+            return accessDataLayer.serchClientsInDB(int.Parse(search));
+        }
+
+        public void deleteOrderById(int idOrder)
+        {
+            accessDataLayer.deleteOrderByIdInDB(idOrder);
+        }
+
+
+        
 
     }
 }

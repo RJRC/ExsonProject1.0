@@ -69,3 +69,7 @@ C:\Users\cesar\source\repos\compuelectaGUI\View\bin\Debug\BLL.pdb
 C:\Users\cesar\source\repos\compuelectaGUI\View\bin\Debug\MySql.Data.xml
 C:\Users\cesar\source\repos\compuelectaGUI\View\bin\Debug\ADL.pdb
 C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BLL.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\ADL.dll
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\BLL.pdb
+C:\Users\DELL\Source\Repos\ExsonProject1.0\View\bin\Debug\ADL.pdb

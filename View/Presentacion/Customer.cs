@@ -18,9 +18,15 @@ private ClientBLL clientBLL=new ClientBLL();
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool b;
-            b= clientBLL.deleteClientBLL(17);
-            MessageBox.Show(b+"", b+"", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Modificar") {
+                dataGridView1.CurrentRow.Selected = true;
+                MessageBox.Show("Cliente a editar: \n" + dataGridView1.Rows[e.RowIndex].Cells["Nombre"].FormattedValue.ToString());
+                String id = dataGridView1.Rows[e.RowIndex].Cells["Codigo Cliente"].FormattedValue.ToString();
+
+                AddClient route = new AddClient(id);
+                route.ShowDialog();
+
+            }
         }
 
         public void loadCustomerView() {
