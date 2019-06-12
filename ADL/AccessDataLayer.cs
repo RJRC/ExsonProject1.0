@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 
 namespace ADL
@@ -12,8 +7,10 @@ namespace ADL
     public class AccessDataLayer
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=root; Database=compuelecta; Port=3306");
+        //MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=root; Database=compuelecta; Port=3306");
 
+        //Cesar
+        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=Ce86497715.; Database=compuelecta; Port=3306");
 
         public void addClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email) {
             
