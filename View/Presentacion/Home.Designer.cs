@@ -36,10 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.orderNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -114,39 +112,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderNum,
-            this.client,
-            this.description,
-            this.date});
+            this.Modificar,
+            this.Eliminar});
             this.dataGridView1.Location = new System.Drawing.Point(100, 143);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(600, 363);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // orderNum
+            // Modificar
             // 
-            this.orderNum.HeaderText = "N° de Orden";
-            this.orderNum.Name = "orderNum";
-            this.orderNum.ReadOnly = true;
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            this.Modificar.Text = "Modificar";
+            this.Modificar.UseColumnTextForButtonValue = true;
             // 
-            // client
+            // Eliminar
             // 
-            this.client.HeaderText = "Cliente";
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.HeaderText = "Descripción";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Fecha";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // Home
             // 
@@ -181,9 +170,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
