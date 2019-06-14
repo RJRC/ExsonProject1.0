@@ -15,11 +15,7 @@ namespace View.Presentacion
         public Principal()
         {
             InitializeComponent();
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+    
         }
 
         private void PicClose_Click(object sender, EventArgs e)
@@ -42,11 +38,6 @@ namespace View.Presentacion
         
         }
 
-        private void LbMenu_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PicRestore_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -61,49 +52,74 @@ namespace View.Presentacion
             picMaximize.Visible = false;
         }
 
-        private void newPanel(object newForm) {
-            if (this.panelFill.Controls.Count>0)
-            {
-                this.panelFill.Controls.RemoveAt(0);
-            }
-
-            Form form = newForm as Form;
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            this.panelFill.Controls.Add(form);
-            this.panelFill.Tag = form;
-            form.Show();
-
-        }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            newPanel(new Add());
+            openForm<Add>();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnReports_Click(object sender, EventArgs e)
         {
-            newPanel(new Reports());
+            if (pnDashboard.Visible)
+            {
+                pnDashboard.Visible = false;
+                pnGeneralReport.Visible = false;
+                btnGeneralReport.Visible = false;
+                btnDashboard.Visible = false;
+            }
+            else
+            {
+                pnDashboard.Visible = true;
+                pnGeneralReport.Visible = true;
+                btnGeneralReport.Visible = true;
+                btnDashboard.Visible = true;
+            }
         }
 
         private void BtnClient_Click(object sender, EventArgs e)
         {
-            newPanel(new Customer());
+            openForm<Customer>();
         }
 
-        private void PanelBottonBar_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void BtnHome_Click(object sender, EventArgs e)
+        {
+            openForm<Home>();
         }
 
-        private void Panel5_Paint(object sender, PaintEventArgs e)
+        private void BtnGeneralReport_Click(object sender, EventArgs e)
         {
 
+            openForm<Reports>();
+            //newPanel(new Reports());
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void pnPrincipal_Paint(object sender, PaintEventArgs e)
         {
-            newPanel(new Home());
+            BtnHome_Click(null, e);
+        }
+
+        //open a new form in the panelFiil
+        private void openForm<myForm>()where myForm:Form,new () {
+            //find in the colection the form
+            Form formPanel=panelFill.Controls.OfType<myForm>().FirstOrDefault();
+            //if the form does not exist, a new instance is created
+            if (formPanel==null)
+            {
+                formPanel = new myForm();
+                formPanel.TopLevel = false;
+                formPanel.Dock = DockStyle.Fill;
+                panelFill.Controls.Add(formPanel);
+                panelFill.Tag = formPanel;
+                formPanel.Show();
+                formPanel.BringToFront();
+            }
+            //If the form exists, it is bring to the front
+            else
+            {
+                formPanel.BringToFront();
+            }
+
         }
     }
 }

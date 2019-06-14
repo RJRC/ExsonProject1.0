@@ -45,6 +45,7 @@
     <Compile Include="AccessDataLayer.cs" />
     <Compile Include="ClientADL.cs" />
     <Compile Include="ConectionADL.cs" />
+    <Compile Include="OrderADL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
