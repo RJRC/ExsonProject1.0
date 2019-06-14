@@ -122,6 +122,7 @@
             // 
             // Modificar
             // 
+            this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modificar.HeaderText = "Modificar";
             this.Modificar.Name = "Modificar";
             this.Modificar.ReadOnly = true;
