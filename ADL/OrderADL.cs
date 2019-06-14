@@ -1,86 +1,28 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ADL
 {
-    public class ClientADL
+   public class OrderADL
     {
-
         private ConectionADL conectionADL = new ConectionADL();
         private MySqlConnection conection;
 
-
-        public DataTable getClientsFromDB()
+        public DataTable getOrderFromDB()
         {
             try
             {
                 conection = conectionADL.GetConnection();
                 conection.Open();
 
-                string storedProcedure = "showClientsProcedure";
+                string storedProcedure = "showOrdersProcedure";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                DataSet ds = new DataSet();
-                DataTable dataTable = new DataTable();
-
-                ds.Tables.Add(dataTable);
-                ds.EnforceConstraints = false;
-                dataTable.Load(rdr);
-
-                conection.Close();
-                return dataTable;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
-            }
-        }
-
-        public bool deleteClientADL(int id)
-        {
-            try
-            {
-                conection = conectionADL.GetConnection();
-                conection.Open();
-
-                MySqlCommand cmd = new MySqlCommand("deleteClientProcedure", conection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@idClient", id);
-
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                conection.Close();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                return false;
-            }
-
-        }
-
-        public DataTable serchClientsInDB(int search)
-        {
-
-
-            try
-            {
-                conection = conectionADL.GetConnection();
-                conection.Open();
-
-                string storedProcedure = "searchIdClientProcedure";
-                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("_idParty", search);
 
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -102,33 +44,57 @@ namespace ADL
                 return new DataTable();
             }
 
+
         }
 
-        public void addOrEditClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email, int idParty)
+        public DataTable serchOrdersInDB(string search)
         {
-
             try
             {
                 conection = conectionADL.GetConnection();
                 conection.Open();
 
-                string storedProcedure = "AddOrEditClient";
+                string storedProcedure = "searchOrderProcedure";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("_IdParty", idParty);
+                cmd.Parameters.AddWithValue("@searchVar", search);
 
-                cmd.Parameters.AddWithValue("_Name", name);
 
-                cmd.Parameters.AddWithValue("_LastName1", lastName1);
+                MySqlDataReader rdr = cmd.ExecuteReader();
 
-                cmd.Parameters.AddWithValue("_LastName2", lastName2);
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
 
-                cmd.Parameters.AddWithValue("_Telephone1", phoneNumber1);
 
-                cmd.Parameters.AddWithValue("_Telephone2", phoneNumber2);
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
 
-                cmd.Parameters.AddWithValue("_Email", email);
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+        }
+
+        public void deleteOrderByIdInDB(int idOrder)
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+
+                string storedProcedure = "deleteOrderByIdProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idVar", idOrder);
+
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -139,11 +105,6 @@ namespace ADL
             {
                 Console.WriteLine(ex.ToString());
             }
-
-
         }
-
-
-
     }
 }
