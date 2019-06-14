@@ -20,6 +20,13 @@ namespace BLL
 
         }
 
+        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        {
+
+            accessDataLayer.addOrderToDB(orderID, provider, partyName, date, linkProduct, description, annotation, costPrice, costSale);
+
+        }
+
 
 
 

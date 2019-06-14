@@ -75,7 +75,7 @@ namespace View
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             string name = txtName.Text;
             string lastName = txtLastName1.Text;
             string lastName2 = txtLastName2.Text;
@@ -88,7 +88,7 @@ namespace View
             businessLogicLayer.addClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email);
 
             this.Close();
-=======
+
             //Save Data Client
 
             //Por aquello de que se caiga try y catch
@@ -118,7 +118,6 @@ namespace View
             }
             //Cerrar Conexion
             connection.Close();
->>>>>>> 974fc57bc08338e8b77ca5d6bed7798e9e9c7afb
 
         }
 

@@ -12,7 +12,7 @@ namespace ADL
     public class AccessDataLayer
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=root; Database=compuelecta; Port=3306");
+        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=Kenny-n919; Database=compuelecta; Port=3306");
 
 
         public void addClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email) {
@@ -45,13 +45,58 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                
+                Console.WriteLine("Este es el error: " + ex.ToString());
             }
 
            
         }
-        
-        
+
+
+        public void addOrderToDB(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "addNewOrder_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("OrderIDAdd", orderID);
+
+                cmd.Parameters.AddWithValue("ProviderNameAdd", provider);
+
+                cmd.Parameters.AddWithValue("PartyNameAdd", partyName);
+
+                cmd.Parameters.AddWithValue("OrderDateAdd", date);
+
+                cmd.Parameters.AddWithValue("OrderLinkAdd", linkProduct);
+
+                cmd.Parameters.AddWithValue("descriptionOrderAdd", description);
+
+                cmd.Parameters.AddWithValue("AnnotationAdd", annotation);
+
+                cmd.Parameters.AddWithValue("CostPriceAdd", costPrice);
+
+                cmd.Parameters.AddWithValue("CostSaleAdd", costSale);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("El mega error: " + ex.ToString());
+            }
+
+
+        }
+
+
 
     }
 }
