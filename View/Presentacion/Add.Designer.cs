@@ -54,6 +54,8 @@
             this.lbSalePrice = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.cb_State = new System.Windows.Forms.ComboBox();
+            this.lb_State = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -297,7 +300,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(98, 409);
+            this.label7.Location = new System.Drawing.Point(279, 409);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 24);
             this.label7.TabIndex = 33;
@@ -305,12 +308,31 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(102, 436);
+            this.richTextBox1.Location = new System.Drawing.Point(283, 436);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(600, 75);
+            this.richTextBox1.Size = new System.Drawing.Size(419, 75);
             this.richTextBox1.TabIndex = 35;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
+            // 
+            // cb_State
+            // 
+            this.cb_State.FormattingEnabled = true;
+            this.cb_State.Location = new System.Drawing.Point(101, 436);
+            this.cb_State.Name = "cb_State";
+            this.cb_State.Size = new System.Drawing.Size(121, 21);
+            this.cb_State.TabIndex = 36;
+            // 
+            // lb_State
+            // 
+            this.lb_State.AutoSize = true;
+            this.lb_State.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_State.ForeColor = System.Drawing.Color.White;
+            this.lb_State.Location = new System.Drawing.Point(97, 409);
+            this.lb_State.Name = "lb_State";
+            this.lb_State.Size = new System.Drawing.Size(68, 24);
+            this.lb_State.TabIndex = 37;
+            this.lb_State.Text = "Estado";
             // 
             // Add
             // 
@@ -318,6 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(800, 595);
+            this.Controls.Add(this.lb_State);
+            this.Controls.Add(this.cb_State);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbSalePrice);
@@ -380,5 +404,7 @@
         private System.Windows.Forms.Label lbSalePrice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ComboBox cb_State;
+        private System.Windows.Forms.Label lb_State;
     }
 }

@@ -30,35 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelTopBar = new System.Windows.Forms.Panel();
-            this.panelBottonBar = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lbMenu = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbMessage = new System.Windows.Forms.Label();
-            this.panelFill = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClient = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.picRestore = new System.Windows.Forms.PictureBox();
             this.picMinimize = new System.Windows.Forms.PictureBox();
             this.picMaximize = new System.Windows.Forms.PictureBox();
             this.picClose = new System.Windows.Forms.PictureBox();
+            this.panelBottonBar = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnClient = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lbMenu = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbMessage = new System.Windows.Forms.Label();
+            this.panelFill = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelTopBar.SuspendLayout();
-            this.panelBottonBar.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panelFill.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRestore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
+            this.panelBottonBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panelFill.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTopBar
@@ -74,6 +74,58 @@
             this.panelTopBar.Size = new System.Drawing.Size(1000, 35);
             this.panelTopBar.TabIndex = 0;
             this.panelTopBar.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            // 
+            // picRestore
+            // 
+            this.picRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picRestore.Image = ((System.Drawing.Image)(resources.GetObject("picRestore.Image")));
+            this.picRestore.Location = new System.Drawing.Point(941, 3);
+            this.picRestore.Name = "picRestore";
+            this.picRestore.Size = new System.Drawing.Size(25, 25);
+            this.picRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRestore.TabIndex = 2;
+            this.picRestore.TabStop = false;
+            this.picRestore.Visible = false;
+            this.picRestore.Click += new System.EventHandler(this.PicRestore_Click);
+            // 
+            // picMinimize
+            // 
+            this.picMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picMinimize.Image = ((System.Drawing.Image)(resources.GetObject("picMinimize.Image")));
+            this.picMinimize.Location = new System.Drawing.Point(910, 3);
+            this.picMinimize.Name = "picMinimize";
+            this.picMinimize.Size = new System.Drawing.Size(25, 25);
+            this.picMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMinimize.TabIndex = 3;
+            this.picMinimize.TabStop = false;
+            this.picMinimize.Click += new System.EventHandler(this.PicMinimize_Click);
+            // 
+            // picMaximize
+            // 
+            this.picMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picMaximize.Image = ((System.Drawing.Image)(resources.GetObject("picMaximize.Image")));
+            this.picMaximize.Location = new System.Drawing.Point(941, 3);
+            this.picMaximize.Name = "picMaximize";
+            this.picMaximize.Size = new System.Drawing.Size(25, 25);
+            this.picMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMaximize.TabIndex = 1;
+            this.picMaximize.TabStop = false;
+            this.picMaximize.Click += new System.EventHandler(this.PicMaximize_Click);
+            // 
+            // picClose
+            // 
+            this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
+            this.picClose.Location = new System.Drawing.Point(972, 3);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(25, 25);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picClose.TabIndex = 0;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.PicClose_Click);
             // 
             // panelBottonBar
             // 
@@ -96,6 +148,48 @@
             this.panelBottonBar.TabIndex = 1;
             this.panelBottonBar.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBottonBar_Paint);
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(10, 131);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(190, 35);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Inicio";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.panel7.Location = new System.Drawing.Point(0, 131);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 35);
+            this.panel7.TabIndex = 6;
+            // 
+            // btnClient
+            // 
+            this.btnClient.FlatAppearance.BorderSize = 0;
+            this.btnClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.btnClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClient.ForeColor = System.Drawing.Color.White;
+            this.btnClient.Image = ((System.Drawing.Image)(resources.GetObject("btnClient.Image")));
+            this.btnClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClient.Location = new System.Drawing.Point(10, 213);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(190, 35);
+            this.btnClient.TabIndex = 5;
+            this.btnClient.Text = "Clientes";
+            this.btnClient.UseVisualStyleBackColor = true;
+            this.btnClient.Click += new System.EventHandler(this.BtnClient_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
@@ -103,6 +197,23 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 35);
             this.panel6.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(10, 254);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(190, 35);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Reportes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // panel5
             // 
@@ -119,6 +230,23 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(135, 10);
             this.panel4.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(10, 172);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(190, 35);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Agregar";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // lbMenu
             // 
@@ -139,6 +267,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 35);
             this.panel2.TabIndex = 0;
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::View.Properties.Resources.leyenda1;
+            this.picLogo.Location = new System.Drawing.Point(12, 22);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(182, 43);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 0;
+            this.picLogo.TabStop = false;
             // 
             // panel3
             // 
@@ -180,141 +318,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 595);
             this.panel1.TabIndex = 4;
             // 
-            // btnClient
-            // 
-            this.btnClient.FlatAppearance.BorderSize = 0;
-            this.btnClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.btnClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClient.ForeColor = System.Drawing.Color.White;
-            this.btnClient.Image = ((System.Drawing.Image)(resources.GetObject("btnClient.Image")));
-            this.btnClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClient.Location = new System.Drawing.Point(10, 213);
-            this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(190, 35);
-            this.btnClient.TabIndex = 5;
-            this.btnClient.Text = "Clientes";
-            this.btnClient.UseVisualStyleBackColor = true;
-            this.btnClient.Click += new System.EventHandler(this.BtnClient_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(10, 254);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Reportes";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(10, 172);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(190, 35);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Agregar";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::View.Properties.Resources.leyenda1;
-            this.picLogo.Location = new System.Drawing.Point(12, 22);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(182, 43);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
-            // 
-            // picRestore
-            // 
-            this.picRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picRestore.Image = ((System.Drawing.Image)(resources.GetObject("picRestore.Image")));
-            this.picRestore.Location = new System.Drawing.Point(941, 3);
-            this.picRestore.Name = "picRestore";
-            this.picRestore.Size = new System.Drawing.Size(25, 25);
-            this.picRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picRestore.TabIndex = 2;
-            this.picRestore.TabStop = false;
-            this.picRestore.Visible = false;
-            this.picRestore.Click += new System.EventHandler(this.PicRestore_Click);
-            // 
-            // picMinimize
-            // 
-            this.picMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picMinimize.Image = ((System.Drawing.Image)(resources.GetObject("picMinimize.Image")));
-            this.picMinimize.Location = new System.Drawing.Point(910, 3);
-            this.picMinimize.Name = "picMinimize";
-            this.picMinimize.Size = new System.Drawing.Size(25, 25);
-            this.picMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMinimize.TabIndex = 3;
-            this.picMinimize.TabStop = false;
-            this.picMinimize.Click += new System.EventHandler(this.PicMinimize_Click);
-            // 
-            // picMaximize
-            // 
-            this.picMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picMaximize.Image = ((System.Drawing.Image)(resources.GetObject("picMaximize.Image")));
-            this.picMaximize.Location = new System.Drawing.Point(941, 3);
-            this.picMaximize.Name = "picMaximize";
-            this.picMaximize.Size = new System.Drawing.Size(25, 25);
-            this.picMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMaximize.TabIndex = 1;
-            this.picMaximize.TabStop = false;
-            this.picMaximize.Click += new System.EventHandler(this.PicMaximize_Click);
-            // 
-            // picClose
-            // 
-            this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
-            this.picClose.Location = new System.Drawing.Point(972, 3);
-            this.picClose.Name = "picClose";
-            this.picClose.Size = new System.Drawing.Size(25, 25);
-            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picClose.TabIndex = 0;
-            this.picClose.TabStop = false;
-            this.picClose.Click += new System.EventHandler(this.PicClose_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(10, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 35);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Inicio";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.panel7.Location = new System.Drawing.Point(0, 131);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 35);
-            this.panel7.TabIndex = 6;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,16 +332,16 @@
             this.Name = "Principal";
             this.Text = "Principal";
             this.panelTopBar.ResumeLayout(false);
-            this.panelBottonBar.ResumeLayout(false);
-            this.panelBottonBar.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panelFill.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRestore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
+            this.panelBottonBar.ResumeLayout(false);
+            this.panelBottonBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panelFill.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
