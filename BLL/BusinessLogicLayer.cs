@@ -38,6 +38,12 @@ namespace BLL
         {
             return accessDataLayer.serchOrdersInDB(search);
         }
+        
+
+        public DataTable showOrderByID(string search)
+        {
+            return accessDataLayer.serchOrdersByID(search);
+        }
 
         public DataTable showSearchClients(String search)
         {
@@ -47,6 +53,13 @@ namespace BLL
         public void deleteOrderById(int idOrder)
         {
             accessDataLayer.deleteOrderByIdInDB(idOrder);
+        }
+
+        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        {
+
+            accessDataLayer.addOrderToDB(orderID, provider, partyName, date, linkProduct, description, annotation, costPrice, costSale);
+
         }
 
 

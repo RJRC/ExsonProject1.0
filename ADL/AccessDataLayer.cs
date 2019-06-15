@@ -12,7 +12,7 @@ namespace ADL
     public class AccessDataLayer
     {
 
-        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=Tortuguero.2011.; Database=compuelecta; Port=3306");
+        MySqlConnection con = new MySqlConnection("server=localhost; user=root; Password=Kenny-n919; Database=compuelecta; Port=3306");
 
 
         public void addOrEditClientToDB(String name, String lastName1, String lastName2, int phoneNumber1, int phoneNumber2, String email, int idParty) {
@@ -191,6 +191,46 @@ namespace ADL
 
         }
 
+
+        public DataTable serchOrdersByID(string orderID)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "searchOrderByID";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@searchOrderID", orderID);
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
+
+
+
         public void deleteOrderByIdInDB(int idOrder)
         {
 
@@ -213,11 +253,60 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                
+                Console.WriteLine("Este es el error: " + ex.ToString());
+            }
+
+           
+        }
+
+
+        public void addOrderToDB(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        {
+
+
+            try
+            {
+                con.Open();
+
+                string storedProcedure = "addNewOrder_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("OrderIDAdd", orderID);
+
+                cmd.Parameters.AddWithValue("ProviderNameAdd", provider);
+
+                cmd.Parameters.AddWithValue("PartyNameAdd", partyName);
+
+                cmd.Parameters.AddWithValue("OrderDateAdd", date);
+
+                cmd.Parameters.AddWithValue("OrderLinkAdd", linkProduct);
+
+                cmd.Parameters.AddWithValue("descriptionOrderAdd", description);
+
+                cmd.Parameters.AddWithValue("AnnotationAdd", annotation);
+
+                cmd.Parameters.AddWithValue("CostPriceAdd", costPrice);
+
+                cmd.Parameters.AddWithValue("CostSaleAdd", costSale);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("El mega error: " + ex.ToString());
             }
 
 
         }
+
+
+
+        
 
 
 
