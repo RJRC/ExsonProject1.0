@@ -1,19 +1,13 @@
-﻿using BLL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace View.Presentacion
 {
     public partial class Add : Form
     {
-
+        private OrderBLL orderBLL = new OrderBLL();
         private String orderUpdate = "";
         public Add(String idUpdate)
         {
@@ -24,7 +18,7 @@ namespace View.Presentacion
             {
                 DataTable dataTableOrder = new DataTable();
 
-                dataTableOrder = businessLogicLayer.showOrderByID(orderUpdate);
+                dataTableOrder = orderBLL.showOrderByID(orderUpdate);
 
                 DataRow dataRow = dataTableOrder.Rows[0];
 
@@ -48,7 +42,7 @@ namespace View.Presentacion
             lb_State.Visible = false;
             cb_State.Visible = false;
         }
-        private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -99,7 +93,7 @@ namespace View.Presentacion
 
                 if (double.TryParse(txtCostPrice.Text, out costPriceNumber) && double.TryParse(txtlbSalePrice.Text, out SalePriceNumber))
                 {
-                    businessLogicLayer.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
+                    orderBLL.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
                     txtOrderNum.Text = "";
                     txtClient.Text = "";
                     txtDescription.Text = "";

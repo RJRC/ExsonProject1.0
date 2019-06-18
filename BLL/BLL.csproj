@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicLayer.cs" />
     <Compile Include="ClientBLL.cs" />
     <Compile Include="OrderBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessDataLayer.cs" />
     <Compile Include="ClientADL.cs" />
     <Compile Include="ConectionADL.cs" />
     <Compile Include="OrderADL.cs" />
