@@ -32,13 +32,17 @@ namespace View.Presentacion
 
                 AddClient route = new AddClient(id);
                 route.ShowDialog();
-
             }
+
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+            this.Refresh();
         }
 
         public void loadCustomerView() {
 
             dataGridView1.DataSource = bll.showClients();
+
 
         }
     }
