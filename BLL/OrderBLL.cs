@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using ADL;
 
 namespace BLL
@@ -32,6 +33,37 @@ namespace BLL
         public void deleteOrderById(int idOrder)
         {
             new OrderADL().deleteOrderByIdInDB(idOrder);
+        }
+
+        private DataTable getProviderBLL() {
+            DataTable providers = new DataTable();
+
+            try
+            {
+              providers= new OrderADL().getProviderADL();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return providers;
+        }
+
+        public void fillProviderComboBox(ComboBox comboBox) {
+            DataTable dt = getProviderBLL(); ;
+            try
+            {
+               for (int i=0; i<dt.Rows.Count;i++)
+                {
+                    comboBox.Items.Add(dt.Rows[i][1].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

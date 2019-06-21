@@ -1,14 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ADL
 {
-   public class OrderADL
+    public class OrderADL
     {
         private ConectionADL conectionADL = new ConectionADL();
         private MySqlConnection conection;
@@ -183,12 +180,41 @@ namespace ADL
             }
             catch (Exception ex)
             {
+
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine("El mega error: " + ex.ToString());
             }
 
 
         }
+
+        public DataTable getProviderADL() {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "getProviderProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet dataSet = new DataSet();
+               
+                dataSet.Tables.Add(dataTable);
+                dataSet.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+            }
+            catch (Exception ex)
+            {
+
+             MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            return dataTable;
+        }
     }
-
-
 }

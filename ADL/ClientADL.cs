@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace ADL
@@ -56,15 +57,12 @@ namespace ADL
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 conection.Close();
-
-                return true;
             }
             catch (Exception ex)
-            {
-                ex.ToString();
-                return false;
+            { 
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            return true;
         }
 
         public DataTable serchClientsInDB(int search)
