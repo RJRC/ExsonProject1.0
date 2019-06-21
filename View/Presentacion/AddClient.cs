@@ -17,6 +17,9 @@ namespace View
     {
 
 
+        //private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        private ClientBLL clientBLL = new ClientBLL();
+
         public AddClient()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace View
         public AddClient(string id)
         {
 
-            DataTable dtcust = businessLogicLayer.showSearchClients(id);
+            DataTable dtcust = clientBLL.showSearchClients(id);
 
             InitializeComponent();
 
@@ -40,7 +43,7 @@ namespace View
             
         }
 
-        private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+       
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -96,7 +99,7 @@ namespace View
 
             string email = txtMail.Text;
 
-            businessLogicLayer.addOrEditClien(name, lastName, lastName2, phoneNumber1, phoneNumber2, email,id);
+            clientBLL.addOrEditClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email,id);
 
             this.Close();
 
