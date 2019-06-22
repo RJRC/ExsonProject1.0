@@ -46,7 +46,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtOrderDate = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAddClient = new System.Windows.Forms.Button();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.txtCostPrice = new System.Windows.Forms.TextBox();
             this.txtlbSalePrice = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.cb_State = new System.Windows.Forms.ComboBox();
             this.lb_State = new System.Windows.Forms.Label();
+            this.btnAddClient = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +121,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(100, 800);
             this.panel2.TabIndex = 5;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -181,7 +182,6 @@
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(393, 29);
             this.txtClient.TabIndex = 16;
-            this.txtClient.TextChanged += new System.EventHandler(this.TxtClient_TextChanged);
             // 
             // label5
             // 
@@ -230,24 +230,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 30);
             this.panel3.TabIndex = 27;
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.btnAddClient.FlatAppearance.BorderSize = 0;
-            this.btnAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.btnAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddClient.ForeColor = System.Drawing.Color.White;
-            this.btnAddClient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddClient.Image")));
-            this.btnAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddClient.Location = new System.Drawing.Point(308, 90);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(180, 30);
-            this.btnAddClient.TabIndex = 24;
-            this.btnAddClient.Text = "Nuevo Cliente";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            this.btnAddClient.Click += new System.EventHandler(this.Button1_Click);
             // 
             // txtCompany
             // 
@@ -313,7 +295,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(419, 75);
             this.richTextBox1.TabIndex = 35;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
             // cb_State
             // 
@@ -333,6 +314,24 @@
             this.lb_State.Size = new System.Drawing.Size(68, 24);
             this.lb_State.TabIndex = 37;
             this.lb_State.Text = "Estado";
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.btnAddClient.FlatAppearance.BorderSize = 0;
+            this.btnAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.btnAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddClient.ForeColor = System.Drawing.Color.White;
+            this.btnAddClient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddClient.Image")));
+            this.btnAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddClient.Location = new System.Drawing.Point(308, 90);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(180, 30);
+            this.btnAddClient.TabIndex = 24;
+            this.btnAddClient.Text = "Nuevo Cliente";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Add
             // 

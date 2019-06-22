@@ -97,3 +97,4 @@ C:\Users\KennAny\Source\Repos\ExsonProject1.0\View\bin\Debug\BLL.pdb
 C:\Users\KennAny\Source\Repos\ExsonProject1.0\View\bin\Debug\MySql.Data.xml
 C:\Users\KennAny\Source\Repos\ExsonProject1.0\View\bin\Debug\ADL.pdb
 C:\Users\KennAny\Source\Repos\ExsonProject1.0\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\KennAny\Source\Repos\ExsonProject1.0\View\obj\Debug\View.Presentacion.dashBoard.resources

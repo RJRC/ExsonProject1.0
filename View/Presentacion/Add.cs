@@ -14,6 +14,7 @@ namespace View.Presentacion
     public partial class Add : Form
     {
 
+        private OrderBLL bll = new OrderBLL();
         private String orderUpdate = "";
         public Add(String idUpdate)
         {
@@ -23,8 +24,14 @@ namespace View.Presentacion
             if(!orderUpdate.Equals(""))
             {
                 DataTable dataTableOrder = new DataTable();
+                DataTable dataTableAllState = new DataTable();
 
-                dataTableOrder = businessLogicLayer.showOrderByID(orderUpdate);
+                dataTableOrder = bll.showOrderByID(orderUpdate);
+                dataTableAllState = bll.showAllState();
+
+                cb_State.DataSource = dataTableAllState;
+                cb_State.DisplayMember = "DesceiptionState";
+                cb_State.ValueMember = "StateID";
 
                 DataRow dataRow = dataTableOrder.Rows[0];
 
@@ -67,16 +74,6 @@ namespace View.Presentacion
 
         }
 
-        private void TxtClient_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RichTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!(txtOrderNum.Text.Trim().Equals("") && txtClient.Text.Trim().Equals("") && txtOrderNum.Text.Trim().Equals("") && txtDescription.Text.Trim().Equals("") && txtCostPrice.Text.Trim().Equals("") && txtlbSalePrice.Text.Trim().Equals("") &&
@@ -99,15 +96,30 @@ namespace View.Presentacion
 
                 if (double.TryParse(txtCostPrice.Text, out costPriceNumber) && double.TryParse(txtlbSalePrice.Text, out SalePriceNumber))
                 {
-                    businessLogicLayer.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
-                    txtOrderNum.Text = "";
-                    txtClient.Text = "";
-                    txtDescription.Text = "";
-                    txtCostPrice.Text = "";
-                    txtlbSalePrice.Text = "";
-                    txtCompany.Text = "";
-                    txtLink.Text = "";
-                    richTextBox1.Text = "";
+                    if(this.orderUpdate.Equals(""))
+                    {
+                        bll.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
+                        txtOrderNum.Text = "";
+                        txtClient.Text = "";
+                        txtDescription.Text = "";
+                        txtCostPrice.Text = "";
+                        txtlbSalePrice.Text = "";
+                        txtCompany.Text = "";
+                        txtLink.Text = "";
+                        richTextBox1.Text = "";
+                    } else
+                    {
+                        int state = Convert.ToInt32(cb_State.SelectedValue);
+                        bll.addOrder(int.Parse(orderID), provider, state, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
+                        txtOrderNum.Text = "";
+                        txtClient.Text = "";
+                        txtDescription.Text = "";
+                        txtCostPrice.Text = "";
+                        txtlbSalePrice.Text = "";
+                        txtCompany.Text = "";
+                        txtLink.Text = "";
+                        richTextBox1.Text = "";
+                    }
                 }
                 else
                 {
@@ -136,6 +148,11 @@ namespace View.Presentacion
             richTextBox1.Text = "";
 
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

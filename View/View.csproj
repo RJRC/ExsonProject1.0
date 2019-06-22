@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,12 @@
     </Compile>
     <Compile Include="Presentacion\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\dashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\dashBoard.Designer.cs">
+      <DependentUpon>dashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Home.cs">
       <SubType>Form</SubType>
@@ -102,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\dashBoard.resx">
+      <DependentUpon>dashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
