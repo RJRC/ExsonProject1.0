@@ -1,24 +1,19 @@
-﻿using BLL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace View.Presentacion
 {
     public partial class Add : Form
     {
-
-        private OrderBLL bll = new OrderBLL();
+        private OrderBLL orderBLL = new OrderBLL();
+        private ClientBLL clientBLL = new ClientBLL();
         private String orderUpdate = "";
         public Add(String idUpdate)
         {
             InitializeComponent();
+           
             this.orderUpdate = idUpdate;
 
             if(!orderUpdate.Equals(""))
@@ -26,21 +21,16 @@ namespace View.Presentacion
                 DataTable dataTableOrder = new DataTable();
                 DataTable dataTableAllState = new DataTable();
 
-                dataTableOrder = bll.showOrderByID(orderUpdate);
-                dataTableAllState = bll.showAllState();
-
-                cb_State.DataSource = dataTableAllState;
-                cb_State.DisplayMember = "DesceiptionState";
-                cb_State.ValueMember = "StateID";
+                dataTableOrder = orderBLL.showOrderByID(orderUpdate);
 
                 DataRow dataRow = dataTableOrder.Rows[0];
 
                 txtOrderNum.Text = dataRow["N. Orden"].ToString();
-                txtClient.Text = dataRow["Cliente"].ToString();
+                cbClient.Text = dataRow["Cliente"].ToString();
                 txtDescription.Text = dataRow["Descripción"].ToString();
                 txtCostPrice.Text = dataRow["Costo Precio"].ToString();
                 txtlbSalePrice.Text = dataRow["Costo Venta"].ToString();
-                txtCompany.Text = dataRow["Proveedor"].ToString();
+                cbProvider.Text = dataRow["Proveedor"].ToString();
                 txtLink.Text = dataRow["Link"].ToString();
                 richTextBox1.Text = dataRow["Comentario"].ToString();
                 String fecha = dataRow["Fecha"].ToString();
@@ -53,9 +43,11 @@ namespace View.Presentacion
         {
             InitializeComponent();
             lb_State.Visible = false;
-            cb_State.Visible = false;
+            cb_Status.Visible = false;
+            orderBLL.fillProviderComboBox(cbProvider);
+            clientBLL.fillClientComboBox(cbClient);
         }
-        private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -64,28 +56,19 @@ namespace View.Presentacion
         
         }
 
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Add_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!(txtOrderNum.Text.Trim().Equals("") && txtClient.Text.Trim().Equals("") && txtOrderNum.Text.Trim().Equals("") && txtDescription.Text.Trim().Equals("") && txtCostPrice.Text.Trim().Equals("") && txtlbSalePrice.Text.Trim().Equals("") &&
-                txtCompany.Text.Trim().Equals("") && txtLink.Text.Trim().Equals("") && richTextBox1.Text.Trim().Equals("")))
+            if (!(txtOrderNum.Text.Trim().Equals("") && cbClient.Text.Trim().Equals("") && txtOrderNum.Text.Trim().Equals("") && txtDescription.Text.Trim().Equals("") && txtCostPrice.Text.Trim().Equals("") && txtlbSalePrice.Text.Trim().Equals("") &&
+                cbProvider.Text.Trim().Equals("") && txtLink.Text.Trim().Equals("") && richTextBox1.Text.Trim().Equals("")))
             {
                 String orderID = txtOrderNum.Text;
-                String nameClient = txtClient.Text;
+                String nameClient = cbClient.Text;
                 String orderNumber = txtOrderNum.Text;
                 String description = txtDescription.Text;
                 String costPrice = txtCostPrice.Text;
                 String salePrice = txtlbSalePrice.Text;
-                String provider = txtCompany.Text;
+                String provider = cbProvider.Text;
                 String linkProduct = txtLink.Text;
                 String annotation = richTextBox1.Text;
                 DateTime dateOrder = dtOrderDate.Value.Date;
@@ -96,30 +79,15 @@ namespace View.Presentacion
 
                 if (double.TryParse(txtCostPrice.Text, out costPriceNumber) && double.TryParse(txtlbSalePrice.Text, out SalePriceNumber))
                 {
-                    if(this.orderUpdate.Equals(""))
-                    {
-                        bll.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
-                        txtOrderNum.Text = "";
-                        txtClient.Text = "";
-                        txtDescription.Text = "";
-                        txtCostPrice.Text = "";
-                        txtlbSalePrice.Text = "";
-                        txtCompany.Text = "";
-                        txtLink.Text = "";
-                        richTextBox1.Text = "";
-                    } else
-                    {
-                        int state = Convert.ToInt32(cb_State.SelectedValue);
-                        bll.addOrder(int.Parse(orderID), provider, state, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
-                        txtOrderNum.Text = "";
-                        txtClient.Text = "";
-                        txtDescription.Text = "";
-                        txtCostPrice.Text = "";
-                        txtlbSalePrice.Text = "";
-                        txtCompany.Text = "";
-                        txtLink.Text = "";
-                        richTextBox1.Text = "";
-                    }
+                    orderBLL.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
+                    txtOrderNum.Text = "";
+                    cbClient.Text = "";
+                    txtDescription.Text = "";
+                    txtCostPrice.Text = "";
+                    txtlbSalePrice.Text = "";
+                    cbProvider.Text = "";
+                    txtLink.Text = "";
+                    richTextBox1.Text = "";
                 }
                 else
                 {
@@ -139,20 +107,17 @@ namespace View.Presentacion
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtOrderNum.Text = "";
-            txtClient.Text = "";
+            cbClient.Text = "";
             txtDescription.Text = "";
             txtCostPrice.Text = "";
             txtlbSalePrice.Text = "";
-            txtCompany.Text = "";
+            cbProvider.Text = "";
             txtLink.Text = "";
             richTextBox1.Text = "";
 
             this.Close();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

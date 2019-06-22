@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using ADL;
 
 namespace BLL
@@ -37,6 +38,23 @@ namespace BLL
             int searchId;
             int.TryParse(search, out searchId );
             return new ClientADL().serchClientsInDB(searchId);
+        }
+
+        public void fillClientComboBox(ComboBox comboBox)
+        {
+            DataTable dt = showClients(); ;
+            try
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    comboBox.Items.Add(dt.Rows[i][1].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

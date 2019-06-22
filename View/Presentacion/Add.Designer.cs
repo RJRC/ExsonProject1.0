@@ -40,22 +40,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtClient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtLink = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtOrderDate = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.btnAddClient = new System.Windows.Forms.Button();
             this.txtCostPrice = new System.Windows.Forms.TextBox();
             this.txtlbSalePrice = new System.Windows.Forms.TextBox();
             this.lbCostPrice = new System.Windows.Forms.Label();
             this.lbSalePrice = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.cb_State = new System.Windows.Forms.ComboBox();
+            this.cb_Status = new System.Windows.Forms.ComboBox();
             this.lb_State = new System.Windows.Forms.Label();
-            this.btnAddClient = new System.Windows.Forms.Button();
+            this.cbProvider = new System.Windows.Forms.ComboBox();
+            this.cbClient = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,7 +128,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(97, 251);
+            this.label1.Location = new System.Drawing.Point(304, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 24);
             this.label1.TabIndex = 9;
@@ -161,7 +161,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(101, 203);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(387, 29);
+            this.txtDescription.Size = new System.Drawing.Size(185, 29);
             this.txtDescription.TabIndex = 14;
             // 
             // label4
@@ -174,14 +174,6 @@
             this.label4.Size = new System.Drawing.Size(75, 24);
             this.label4.TabIndex = 17;
             this.label4.Text = "Cliente*";
-            // 
-            // txtClient
-            // 
-            this.txtClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClient.Location = new System.Drawing.Point(101, 126);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.Size = new System.Drawing.Size(393, 29);
-            this.txtClient.TabIndex = 16;
             // 
             // label5
             // 
@@ -212,7 +204,6 @@
             this.label6.Size = new System.Drawing.Size(156, 29);
             this.label6.TabIndex = 25;
             this.label6.Text = "Nueva Orden";
-            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // dtOrderDate
             // 
@@ -230,90 +221,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 30);
             this.panel3.TabIndex = 27;
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompany.Location = new System.Drawing.Point(99, 278);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(180, 29);
-            this.txtCompany.TabIndex = 8;
-            // 
-            // txtCostPrice
-            // 
-            this.txtCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCostPrice.Location = new System.Drawing.Point(308, 278);
-            this.txtCostPrice.Name = "txtCostPrice";
-            this.txtCostPrice.Size = new System.Drawing.Size(180, 29);
-            this.txtCostPrice.TabIndex = 28;
-            // 
-            // txtlbSalePrice
-            // 
-            this.txtlbSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlbSalePrice.Location = new System.Drawing.Point(522, 278);
-            this.txtlbSalePrice.Name = "txtlbSalePrice";
-            this.txtlbSalePrice.Size = new System.Drawing.Size(180, 29);
-            this.txtlbSalePrice.TabIndex = 29;
-            // 
-            // lbCostPrice
-            // 
-            this.lbCostPrice.AutoSize = true;
-            this.lbCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCostPrice.ForeColor = System.Drawing.Color.White;
-            this.lbCostPrice.Location = new System.Drawing.Point(304, 251);
-            this.lbCostPrice.Name = "lbCostPrice";
-            this.lbCostPrice.Size = new System.Drawing.Size(151, 24);
-            this.lbCostPrice.TabIndex = 30;
-            this.lbCostPrice.Text = "Precio de Costo*";
-            // 
-            // lbSalePrice
-            // 
-            this.lbSalePrice.AutoSize = true;
-            this.lbSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSalePrice.ForeColor = System.Drawing.Color.White;
-            this.lbSalePrice.Location = new System.Drawing.Point(517, 251);
-            this.lbSalePrice.Name = "lbSalePrice";
-            this.lbSalePrice.Size = new System.Drawing.Size(152, 24);
-            this.lbSalePrice.TabIndex = 31;
-            this.lbSalePrice.Text = "Precio de Venta*";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(279, 409);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 24);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Comentario";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(283, 436);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(419, 75);
-            this.richTextBox1.TabIndex = 35;
-            this.richTextBox1.Text = "";
-            // 
-            // cb_State
-            // 
-            this.cb_State.FormattingEnabled = true;
-            this.cb_State.Location = new System.Drawing.Point(101, 436);
-            this.cb_State.Name = "cb_State";
-            this.cb_State.Size = new System.Drawing.Size(121, 21);
-            this.cb_State.TabIndex = 36;
-            // 
-            // lb_State
-            // 
-            this.lb_State.AutoSize = true;
-            this.lb_State.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_State.ForeColor = System.Drawing.Color.White;
-            this.lb_State.Location = new System.Drawing.Point(97, 409);
-            this.lb_State.Name = "lb_State";
-            this.lb_State.Size = new System.Drawing.Size(68, 24);
-            this.lb_State.TabIndex = 37;
-            this.lb_State.Text = "Estado";
             // 
             // btnAddClient
             // 
@@ -333,14 +240,115 @@
             this.btnAddClient.UseVisualStyleBackColor = true;
             this.btnAddClient.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // txtCostPrice
+            // 
+            this.txtCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPrice.Location = new System.Drawing.Point(100, 278);
+            this.txtCostPrice.Name = "txtCostPrice";
+            this.txtCostPrice.Size = new System.Drawing.Size(180, 29);
+            this.txtCostPrice.TabIndex = 28;
+            // 
+            // txtlbSalePrice
+            // 
+            this.txtlbSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlbSalePrice.Location = new System.Drawing.Point(308, 278);
+            this.txtlbSalePrice.Name = "txtlbSalePrice";
+            this.txtlbSalePrice.Size = new System.Drawing.Size(180, 29);
+            this.txtlbSalePrice.TabIndex = 29;
+            // 
+            // lbCostPrice
+            // 
+            this.lbCostPrice.AutoSize = true;
+            this.lbCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCostPrice.ForeColor = System.Drawing.Color.White;
+            this.lbCostPrice.Location = new System.Drawing.Point(96, 251);
+            this.lbCostPrice.Name = "lbCostPrice";
+            this.lbCostPrice.Size = new System.Drawing.Size(151, 24);
+            this.lbCostPrice.TabIndex = 30;
+            this.lbCostPrice.Text = "Precio de Costo*";
+            // 
+            // lbSalePrice
+            // 
+            this.lbSalePrice.AutoSize = true;
+            this.lbSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSalePrice.ForeColor = System.Drawing.Color.White;
+            this.lbSalePrice.Location = new System.Drawing.Point(303, 251);
+            this.lbSalePrice.Name = "lbSalePrice";
+            this.lbSalePrice.Size = new System.Drawing.Size(152, 24);
+            this.lbSalePrice.TabIndex = 31;
+            this.lbSalePrice.Text = "Precio de Venta*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(97, 409);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 24);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Comentario";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(101, 436);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(601, 75);
+            this.richTextBox1.TabIndex = 35;
+            this.richTextBox1.Text = "";
+            // 
+            // cb_Status
+            // 
+            this.cb_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_Status.FormattingEnabled = true;
+            this.cb_Status.Location = new System.Drawing.Point(521, 278);
+            this.cb_Status.Name = "cb_Status";
+            this.cb_Status.Size = new System.Drawing.Size(180, 28);
+            this.cb_Status.TabIndex = 36;
+            // 
+            // lb_State
+            // 
+            this.lb_State.AutoSize = true;
+            this.lb_State.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_State.ForeColor = System.Drawing.Color.White;
+            this.lb_State.Location = new System.Drawing.Point(517, 251);
+            this.lb_State.Name = "lb_State";
+            this.lb_State.Size = new System.Drawing.Size(68, 24);
+            this.lb_State.TabIndex = 37;
+            this.lb_State.Text = "Estado";
+            // 
+            // cbProvider
+            // 
+            this.cbProvider.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbProvider.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbProvider.FormattingEnabled = true;
+            this.cbProvider.Location = new System.Drawing.Point(308, 203);
+            this.cbProvider.Name = "cbProvider";
+            this.cbProvider.Size = new System.Drawing.Size(185, 28);
+            this.cbProvider.TabIndex = 38;
+            // 
+            // cbClient
+            // 
+            this.cbClient.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbClient.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbClient.FormattingEnabled = true;
+            this.cbClient.Location = new System.Drawing.Point(101, 127);
+            this.cbClient.Name = "cbClient";
+            this.cbClient.Size = new System.Drawing.Size(387, 28);
+            this.cbClient.TabIndex = 39;
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(800, 595);
+            this.Controls.Add(this.cbClient);
+            this.Controls.Add(this.cbProvider);
             this.Controls.Add(this.lb_State);
-            this.Controls.Add(this.cb_State);
+            this.Controls.Add(this.cb_Status);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbSalePrice);
@@ -353,12 +361,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtClient);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCompany);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbOrderNum);
@@ -368,7 +374,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Add";
             this.Text = "Add";
-            this.Load += new System.EventHandler(this.Add_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -389,21 +394,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtClient;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtLink;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtOrderDate;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.TextBox txtCostPrice;
         private System.Windows.Forms.TextBox txtlbSalePrice;
         private System.Windows.Forms.Label lbCostPrice;
         private System.Windows.Forms.Label lbSalePrice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox cb_State;
+        private System.Windows.Forms.ComboBox cb_Status;
         private System.Windows.Forms.Label lb_State;
+        private System.Windows.Forms.ComboBox cbProvider;
+        private System.Windows.Forms.ComboBox cbClient;
     }
 }

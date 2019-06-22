@@ -13,7 +13,7 @@ namespace View.Presentacion
 {
     public partial class Reports : Form
     {
-        private BusinessLogicLayer bll = new BusinessLogicLayer();
+        private OrderBLL bll = new OrderBLL();
 
         public Reports()
         {
