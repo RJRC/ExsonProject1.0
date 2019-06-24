@@ -145,7 +145,6 @@ namespace ADL
         public void addOrderToDB(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
         {
 
-
             try
             {
                 conection = conectionADL.GetConnection();
