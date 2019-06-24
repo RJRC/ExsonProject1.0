@@ -66,27 +66,8 @@ namespace BLL
             }
         }
 
-        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
-        {
-
-            new OrderADL().addOrderToDB(orderID, provider, partyName, date, linkProduct, description, annotation, costPrice, costSale);
-
-        }
-
-        public void addOrder(int orderID, String provider, int state, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
-        {
-
-            new OrderADL().addOrderToDB(orderID, provider, state, partyName, date, linkProduct, description, annotation, costPrice, costSale);
-
-        }
-
-        public DataTable showOrderByID(string orderID)
-        {
-
-            return new OrderADL().serchOrdersByID(orderID);
-
-        }
-
+      
+        
         public DataTable showAllState()
         {
             return new OrderADL().getAllState();
@@ -102,7 +83,16 @@ namespace BLL
             return new OrderADL().totalsales();
         }
 
+        public DataTable getOrderWithFilter(DateTime startDate, DateTime finishDate, string status)
+        {
 
-        
+            string newStartDate = startDate.Year + "-" + startDate.Month + "-" + startDate.Day;
+            string newFinishDate = finishDate.Year + "-" + finishDate.Month + "-" + finishDate.Day;
+
+            return new OrderADL().getOrderFromDBWithFilter(newStartDate, newFinishDate, status);
+        }
+
+
+
     }
 }

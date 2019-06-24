@@ -44,10 +44,11 @@ namespace View.Presentacion
         {
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.totalsales();
-
             DataRow dataRow = dataTableOrder.Rows[0];
 
             lb_showTotalSales.Text = dataRow["TotalVentas"].ToString();
+
+           
         }
 
     }

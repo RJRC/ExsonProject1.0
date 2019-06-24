@@ -6,7 +6,7 @@ namespace ADL
     {
         private string USER="root";
         //cesar
-        private string PASSWORD= "Kenny-n919";
+        private string PASSWORD= "root";
         private string SERVER= "localhost";
         private string PORT = "3306";
         private string DATA_BASE = "compuelecta";
