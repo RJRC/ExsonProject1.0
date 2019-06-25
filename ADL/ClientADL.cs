@@ -42,6 +42,40 @@ namespace ADL
             }
         }
 
+
+        
+         public DataTable searchClientsInDB(string search)
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "searchClientProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@searchVar", search);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+        }
+
         public bool deleteClientADL(int id)
         {
             try
