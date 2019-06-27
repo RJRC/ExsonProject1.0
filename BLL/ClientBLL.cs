@@ -25,6 +25,14 @@ namespace BLL
             return  new ClientADL().getClientsFromDB();
         }
 
+        public DataTable searchClients(string search)
+        {
+            return new ClientADL().searchClientsInDB(search);
+        }
+
+        
+
+
         public void addOrEditClient(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email, String id)
         {
 
