@@ -27,7 +27,7 @@ namespace View.Presentacion
         public void loadOrderView()
         {
 
-            dataGridView1.DataSource = orderBll.showOrders();
+            dataGridView1.DataSource = orderBll.showOrdersGeneral();
             comboStatus.DataSource = reportsBll.getStatusValues();
         }
 

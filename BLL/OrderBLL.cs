@@ -13,6 +13,11 @@ namespace BLL
             return new OrderADL().getOrderFromDB();
         }
 
+        public DataTable showOrdersGeneral()
+        {
+            return new OrderADL().getOrderGeneralReports();
+        }
+
         public DataTable showOrderByID(string search)
         {
             return new OrderADL().serchOrdersByID(search);
@@ -94,7 +99,7 @@ namespace BLL
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
