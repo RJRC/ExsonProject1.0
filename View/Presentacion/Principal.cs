@@ -112,7 +112,20 @@ namespace View.Presentacion
                     // close the panel and open a new panel with the new data
                     formPanel.Close();
 
-                    openForm<Home>();
+                    if (formPanel.Name == "Home")
+                    {
+                        openForm<Home>();
+                    }
+                    else if (formPanel.Name == "Customer")
+                    {
+                        openForm<Customer>();
+                    }
+                    else if (formPanel.Name == "dashBoard")
+                    {
+                        openForm<dashBoard>();
+                    }
+
+                   
 
                 }
                 else
