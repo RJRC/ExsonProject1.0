@@ -251,7 +251,6 @@ namespace ADL
 
         public DataTable getAllState()
         {
-
             try
             {
                 conection = conectionADL.GetConnection();
@@ -277,8 +276,8 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
 
 
@@ -384,8 +383,8 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -416,8 +415,8 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
             public DataTable getOrderFromDBWithFilter(string startDate, string finishDate, string status)
@@ -454,8 +453,8 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
 
 

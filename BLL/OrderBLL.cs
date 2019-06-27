@@ -40,7 +40,6 @@ namespace BLL
         }
 
         
-
         public DataTable showSearchOrders(string search)
         {
             return new OrderADL().serchOrdersInDB(search);
@@ -82,8 +81,24 @@ namespace BLL
             }
         }
 
-      
-        
+        public void fillStatusComboBox(ComboBox comboBox)
+        {
+            DataTable dt = showAllState(); ;
+            try
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    comboBox.Items.Add(dt.Rows[i][1].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         public DataTable showAllState()
         {
             return new OrderADL().getAllState();

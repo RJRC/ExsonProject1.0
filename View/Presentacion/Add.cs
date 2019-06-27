@@ -13,7 +13,10 @@ namespace View.Presentacion
         public Add(String idUpdate)
         {
             InitializeComponent();
-           
+            orderBLL.fillProviderComboBox(cbProvider);
+            clientBLL.fillClientComboBox(cbClient);
+            orderBLL.fillStatusComboBox(cb_Status);
+
             this.orderUpdate = idUpdate;
 
             if(!orderUpdate.Equals(""))
