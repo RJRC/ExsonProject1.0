@@ -37,8 +37,8 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
 
 
@@ -104,49 +104,38 @@ namespace ADL
             }
         }
 
-    
-
-        public void addOrderToDB(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        public DataTable getStatusIdADL(string status)
         {
-
-
             try
             {
                 conection = conectionADL.GetConnection();
                 conection.Open();
 
-                string storedProcedure = "addNewOrder_procedure";
+                string storedProcedure = "getStatusId";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("OrderIDAdd", orderID);
+                cmd.Parameters.AddWithValue("@statusVar", status);
 
-                cmd.Parameters.AddWithValue("ProviderNameAdd", provider);
-
-                cmd.Parameters.AddWithValue("PartyNameAdd", partyName);
-
-                cmd.Parameters.AddWithValue("OrderDateAdd", date);
-
-                cmd.Parameters.AddWithValue("OrderLinkAdd", linkProduct);
-
-                cmd.Parameters.AddWithValue("descriptionOrderAdd", description);
-
-                cmd.Parameters.AddWithValue("AnnotationAdd", annotation);
-
-                cmd.Parameters.AddWithValue("CostPriceAdd", costPrice);
-
-                cmd.Parameters.AddWithValue("CostSaleAdd", costSale);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
 
                 conection.Close();
+                return dataTable;
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("El mega error: " + ex.ToString());
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
 
 
@@ -181,12 +170,8 @@ namespace ADL
             return dataTable;
         }
 
-       
-
-        public void addOrderToDB(int orderID, String provider, int state, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        public void addOrderToDB(int orderID, String provider, int status, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
         {
-
-
             try
             {
                 conection = conectionADL.GetConnection();
@@ -202,7 +187,7 @@ namespace ADL
 
                 cmd.Parameters.AddWithValue("PartyNameAdd", partyName);
 
-                cmd.Parameters.AddWithValue("StateAdd", state);
+                cmd.Parameters.AddWithValue("StateAdd", status);
 
                 cmd.Parameters.AddWithValue("OrderDateAdd", date);
 
@@ -223,7 +208,7 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine("El mega error: " + ex.ToString());
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -231,8 +216,6 @@ namespace ADL
 
         public DataTable serchOrdersByID(string orderID)
         {
-
-
             try
             {
                 conection = conectionADL.GetConnection();
@@ -242,7 +225,7 @@ namespace ADL
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@searchOrderID", orderID);
+                cmd.Parameters.AddWithValue("searchOrderID", orderID);
 
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -260,11 +243,9 @@ namespace ADL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return new DataTable();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
-
-
         }
 
 
@@ -302,7 +283,6 @@ namespace ADL
 
 
         }
-
 
 
         public DataTable totalOrdersByMonth()
@@ -345,7 +325,6 @@ namespace ADL
         public DataTable totalsales()
         {
 
-
             try
             {
                 conection = conectionADL.GetConnection();
@@ -378,9 +357,70 @@ namespace ADL
 
         }
 
+        public DataTable countSalesADL()
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "countSales_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
 
-        public DataTable getOrderFromDBWithFilter(string startDate, string finishDate, string status)
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+        }
+
+        public DataTable costSalesADL()
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "costSales_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+        }
+            public DataTable getOrderFromDBWithFilter(string startDate, string finishDate, string status)
         {
             try
             {

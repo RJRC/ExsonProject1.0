@@ -9,7 +9,8 @@ namespace View.Presentacion
         public Principal()
         {
             InitializeComponent();
-    
+            openForm<Home>();
+
         }
 
         private void PicClose_Click(object sender, EventArgs e)
@@ -83,22 +84,16 @@ namespace View.Presentacion
 
         private void BtnGeneralReport_Click(object sender, EventArgs e)
         {
-
             openForm<Reports>();
-            //newPanel(new Reports());
         }
 
-        private void pnPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-            BtnHome_Click(null, e);
-        }
 
         //open a new form in the panelFiil
         private void openForm<myForm>()where myForm:Form,new () {
             //find in the colection the form
             Form formPanel=panelFill.Controls.OfType<myForm>().FirstOrDefault();
             //if the form does not exist, a new instance is created
-            if (formPanel==null)
+            if (formPanel == null)
             {
                 formPanel = new myForm();
                 formPanel.TopLevel = false;
@@ -111,15 +106,28 @@ namespace View.Presentacion
             //If the form exists, it is bring to the front
             else
             {
-                formPanel.BringToFront();
-            }
 
+                if (formPanel.Name=="Home"|| formPanel.Name == "Customer"|| formPanel.Name == "dashBoard")
+                {
+                    // close the panel and open a new panel with the new data
+                    formPanel.Close();
+
+                    openForm<Home>();
+
+                }
+                else
+                {
+                    formPanel.BringToFront();
+                }
+            }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            dashBoard dashBoard = new dashBoard();
-            dashBoard.Show();
+
+            openForm<dashBoard>();
+            //dashBoard dashBoard = new dashBoard();
+            //dashBoard.Show();
         }
     }
 }

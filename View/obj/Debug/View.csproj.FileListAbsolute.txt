@@ -123,3 +123,4 @@ C:\Users\rolan\OneDrive\Desktop\ExsonProject1.0-master\View\bin\Debug\BLL.pdb
 C:\Users\rolan\OneDrive\Desktop\ExsonProject1.0-master\View\bin\Debug\MySql.Data.xml
 C:\Users\rolan\OneDrive\Desktop\ExsonProject1.0-master\View\bin\Debug\ADL.pdb
 C:\Users\rolan\OneDrive\Desktop\ExsonProject1.0-master\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\cesar\source\repos\compuelectaGUI\View\obj\Debug\View.Presentacion.dashBoard.resources

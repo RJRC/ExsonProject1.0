@@ -51,7 +51,7 @@
             this.lbCostPrice = new System.Windows.Forms.Label();
             this.lbSalePrice = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtAnnotation = new System.Windows.Forms.RichTextBox();
             this.cb_Status = new System.Windows.Forms.ComboBox();
             this.lb_State = new System.Windows.Forms.Label();
             this.cbProvider = new System.Windows.Forms.ComboBox();
@@ -61,6 +61,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -76,6 +77,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(214)))), ((int)(((byte)(148)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,6 +93,7 @@
             // 
             // txtOrderNum
             // 
+            this.txtOrderNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOrderNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderNum.Location = new System.Drawing.Point(521, 126);
             this.txtOrderNum.Name = "txtOrderNum";
@@ -99,6 +102,7 @@
             // 
             // lbOrderNum
             // 
+            this.lbOrderNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbOrderNum.AutoSize = true;
             this.lbOrderNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOrderNum.ForeColor = System.Drawing.Color.White;
@@ -121,7 +125,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(100, 800);
             this.panel2.TabIndex = 5;
-            //this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -136,6 +139,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -188,6 +192,8 @@
             // 
             // txtLink
             // 
+            this.txtLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLink.Location = new System.Drawing.Point(101, 357);
             this.txtLink.Name = "txtLink";
@@ -207,6 +213,7 @@
             // 
             // dtOrderDate
             // 
+            this.dtOrderDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtOrderDate.Location = new System.Drawing.Point(521, 203);
             this.dtOrderDate.Name = "dtOrderDate";
@@ -215,6 +222,8 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(101, 49);
@@ -224,6 +233,7 @@
             // 
             // btnAddClient
             // 
+            this.btnAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddClient.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
             this.btnAddClient.FlatAppearance.BorderSize = 0;
             this.btnAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
@@ -250,6 +260,8 @@
             // 
             // txtlbSalePrice
             // 
+            this.txtlbSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtlbSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlbSalePrice.Location = new System.Drawing.Point(308, 278);
             this.txtlbSalePrice.Name = "txtlbSalePrice";
@@ -289,16 +301,20 @@
             this.label7.TabIndex = 33;
             this.label7.Text = "Comentario";
             // 
-            // richTextBox1
+            // txtAnnotation
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(101, 436);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(601, 75);
-            this.richTextBox1.TabIndex = 35;
-            this.richTextBox1.Text = "";
+            this.txtAnnotation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAnnotation.Location = new System.Drawing.Point(101, 436);
+            this.txtAnnotation.Name = "txtAnnotation";
+            this.txtAnnotation.Size = new System.Drawing.Size(601, 75);
+            this.txtAnnotation.TabIndex = 35;
+            this.txtAnnotation.Text = "";
             // 
             // cb_Status
             // 
+            this.cb_Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_Status.FormattingEnabled = true;
             this.cb_Status.Location = new System.Drawing.Point(521, 278);
@@ -308,6 +324,8 @@
             // 
             // lb_State
             // 
+            this.lb_State.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_State.AutoSize = true;
             this.lb_State.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_State.ForeColor = System.Drawing.Color.White;
@@ -319,6 +337,8 @@
             // 
             // cbProvider
             // 
+            this.cbProvider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbProvider.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbProvider.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -330,6 +350,8 @@
             // 
             // cbClient
             // 
+            this.cbClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbClient.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbClient.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -349,7 +371,7 @@
             this.Controls.Add(this.cbProvider);
             this.Controls.Add(this.lb_State);
             this.Controls.Add(this.cb_Status);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtAnnotation);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbSalePrice);
             this.Controls.Add(this.lbCostPrice);
@@ -405,7 +427,7 @@
         private System.Windows.Forms.Label lbCostPrice;
         private System.Windows.Forms.Label lbSalePrice;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtAnnotation;
         private System.Windows.Forms.ComboBox cb_Status;
         private System.Windows.Forms.Label lb_State;
         private System.Windows.Forms.ComboBox cbProvider;

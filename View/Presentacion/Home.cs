@@ -58,9 +58,8 @@ namespace View.Presentacion
                 {
                     Add panelOrderUpdate = new Add(id);
                     panelOrderUpdate.Show();
-                    loadOrderView();
-                }
 
+                }
             }
         }
 

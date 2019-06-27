@@ -18,12 +18,28 @@ namespace BLL
             return new OrderADL().serchOrdersByID(search);
         }
 
-        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale,string status)
         {
+            OrderADL orderADL = new OrderADL();
+            int intStatus=0;
+            if (status.Equals(""))
+            {
+                intStatus = 1;
+            }
+            else
+            {
+                DataTable dataTableId = orderADL.getStatusIdADL(status);
 
-            new OrderADL().addOrderToDB(orderID, provider, partyName, date, linkProduct, description, annotation, costPrice, costSale);
+                DataRow dataRow = dataTableId.Rows[0];
+
+               // intStatus = orderADL.getStatusIdADL(status);   
+            }
+
+            orderADL.addOrderToDB(orderID, provider, intStatus ,partyName, date, linkProduct, description, annotation, costPrice, costSale);
 
         }
+
+        
 
         public DataTable showSearchOrders(string search)
         {
@@ -81,6 +97,18 @@ namespace BLL
         public DataTable totalsales()
         {
             return new OrderADL().totalsales();
+        }
+
+        public DataTable countSalesBLL()
+        {
+            return new OrderADL().countSalesADL();
+
+        }
+
+        public DataTable costSalesBLL()
+        {
+            return new OrderADL().costSalesADL();
+
         }
 
         public DataTable getOrderWithFilter(DateTime startDate, DateTime finishDate, string status)

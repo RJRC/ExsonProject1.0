@@ -20,6 +20,8 @@ namespace View.Presentacion
             InitializeComponent();
             methodGenerateGraphic();
             generateLbTotalSales();
+            countSales();
+            generateLbCostTotal();
         }
 
         private void bt_generate_Click(object sender, EventArgs e)
@@ -40,16 +42,27 @@ namespace View.Presentacion
             chart_salesPerMonth.Visible = true;
         }
 
-        public void generateLbTotalSales()
+        private void generateLbTotalSales()
         {
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.totalsales();
             DataRow dataRow = dataTableOrder.Rows[0];
-
-            lb_showTotalSales.Text = dataRow["TotalVentas"].ToString();
-
-           
+            lb_showTotalSales.Text += dataRow["TotalVentas"].ToString();
         }
 
+        private void generateLbCostTotal()
+        {
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = bll.costSalesBLL();
+            DataRow dataRow = dataTableOrder.Rows[0];
+            lb_showTotalCost.Text += dataRow["costOrders"].ToString();
+        }
+
+        private void countSales() {
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = bll.countSalesBLL();
+            DataRow dataRow = dataTableOrder.Rows[0];
+            lb_showCountSales.Text += dataRow["countOrders"].ToString();
+        }
     }
 }
