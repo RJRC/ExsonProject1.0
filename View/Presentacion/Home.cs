@@ -58,9 +58,8 @@ namespace View.Presentacion
                 {
                     Add panelOrderUpdate = new Add(id);
                     panelOrderUpdate.Show();
-                    loadOrderView();
-                }
 
+                }
             }
         }
 
@@ -73,5 +72,9 @@ namespace View.Presentacion
             } 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

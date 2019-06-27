@@ -31,11 +31,15 @@ namespace View
             DataTable dtcust = clientBLL.showSearchClients(id);
 
             InitializeComponent();
+            
 
             idLbl.Text = id;
-            txtName.Text = dtcust.Rows[0]["Nombre"].ToString(); 
-            txtLastName1.Text = dtcust.Rows[0]["Primer Apellido"].ToString();
-            txtLastName2.Text = dtcust.Rows[0]["Segundo Apellido"].ToString();
+            txtName.Text = dtcust.Rows[0]["Nombre"].ToString();
+            // txtLastName1.Text = dtcust.Rows[0]["Primer Apellido"].ToString();
+            //txtLastName2.Text = dtcust.Rows[0]["Segundo Apellido"].ToString();
+
+            txtLastName1.Text = dtcust.Rows[0][2].ToString();
+            txtLastName2.Text = dtcust.Rows[0][3].ToString();
             txtPhone1.Text = dtcust.Rows[0]["Teléfono 1"].ToString();
             txtPhone2.Text = dtcust.Rows[0]["Teléfono 2"].ToString();
             txtMail.Text = dtcust.Rows[0]["Correo Electrónico"].ToString();

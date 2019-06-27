@@ -13,12 +13,16 @@ namespace View.Presentacion
         public Add(String idUpdate)
         {
             InitializeComponent();
-           
+            orderBLL.fillProviderComboBox(cbProvider);
+            clientBLL.fillClientComboBox(cbClient);
+            orderBLL.fillStatusComboBox(cb_Status);
+
             this.orderUpdate = idUpdate;
 
             if(!orderUpdate.Equals(""))
             {
                 DataTable dataTableOrder = new DataTable();
+                DataTable dataTableAllState = new DataTable();
 
                 dataTableOrder = orderBLL.showOrderByID(orderUpdate);
 
@@ -31,7 +35,7 @@ namespace View.Presentacion
                 txtlbSalePrice.Text = dataRow["Costo Venta"].ToString();
                 cbProvider.Text = dataRow["Proveedor"].ToString();
                 txtLink.Text = dataRow["Link"].ToString();
-                richTextBox1.Text = dataRow["Comentario"].ToString();
+                txtAnnotation.Text = dataRow["Comentario"].ToString();
                 String fecha = dataRow["Fecha"].ToString();
                 dtOrderDate.Value = DateTime.Parse(dataRow["Fecha"].ToString());
             }
@@ -58,8 +62,8 @@ namespace View.Presentacion
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!(txtOrderNum.Text.Trim().Equals("") && cbClient.Text.Trim().Equals("") && txtOrderNum.Text.Trim().Equals("") && txtDescription.Text.Trim().Equals("") && txtCostPrice.Text.Trim().Equals("") && txtlbSalePrice.Text.Trim().Equals("") &&
-                cbProvider.Text.Trim().Equals("") && txtLink.Text.Trim().Equals("") && richTextBox1.Text.Trim().Equals("")))
+            if (!txtOrderNum.Text.Trim().Equals("") && !cbClient.Text.Trim().Equals("") && !txtOrderNum.Text.Trim().Equals("") && !txtDescription.Text.Trim().Equals("") && !txtCostPrice.Text.Trim().Equals("") && !txtlbSalePrice.Text.Trim().Equals("") &&
+                !cbProvider.Text.Trim().Equals("") && !txtLink.Text.Trim().Equals(""))
             {
                 String orderID = txtOrderNum.Text;
                 String nameClient = cbClient.Text;
@@ -69,16 +73,27 @@ namespace View.Presentacion
                 String salePrice = txtlbSalePrice.Text;
                 String provider = cbProvider.Text;
                 String linkProduct = txtLink.Text;
-                String annotation = richTextBox1.Text;
+                String annotation = txtAnnotation.Text;
                 DateTime dateOrder = dtOrderDate.Value.Date;
+                string status = cb_Status.Text;
 
                 double costPriceNumber = 0;
                 double SalePriceNumber = 0;
 
 
-                if (double.TryParse(txtCostPrice.Text, out costPriceNumber) && double.TryParse(txtlbSalePrice.Text, out SalePriceNumber))
+                if (!double.TryParse(txtCostPrice.Text, out costPriceNumber))
                 {
-                    orderBLL.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber);
+                    MessageBox.Show("Ingrese solo números en el campo precio de costo");
+                    txtCostPrice.Text = "";
+                }
+                else if (!double.TryParse(txtlbSalePrice.Text, out SalePriceNumber))
+                {
+                    MessageBox.Show("Ingrese solo números en el campo precio de venta");
+                    txtlbSalePrice.Text = "";
+                }
+                else
+                {
+                    orderBLL.addOrder(int.Parse(orderID), provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber, status);
                     txtOrderNum.Text = "";
                     cbClient.Text = "";
                     txtDescription.Text = "";
@@ -86,16 +101,12 @@ namespace View.Presentacion
                     txtlbSalePrice.Text = "";
                     cbProvider.Text = "";
                     txtLink.Text = "";
-                    richTextBox1.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Ingrese solo numero en los campos de costo y precio venta");
-                    txtCostPrice.Text = "";
-                    txtlbSalePrice.Text = "";
-                }
+                    txtAnnotation.Text = "";
 
+                    
+                    MessageBox.Show("¡Guardado con éxito!");
 
+                }
             }
             else
             {
@@ -105,16 +116,39 @@ namespace View.Presentacion
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtOrderNum.Text = "";
-            cbClient.Text = "";
-            txtDescription.Text = "";
-            txtCostPrice.Text = "";
-            txtlbSalePrice.Text = "";
-            cbProvider.Text = "";
-            txtLink.Text = "";
-            richTextBox1.Text = "";
+            if (!txtOrderNum.Text.Trim().Equals("") || !cbClient.Text.Trim().Equals("") || !txtOrderNum.Text.Trim().Equals("") 
+                || !txtDescription.Text.Trim().Equals("") || !txtCostPrice.Text.Trim().Equals("") || !txtlbSalePrice.Text.Trim().Equals("") ||
+               !cbProvider.Text.Trim().Equals("") || !txtLink.Text.Trim().Equals("")) {
 
-            this.Close();
+                const string message = "Si continua perderá todos los datos sin guardar. " +
+                "\n¿Está seguro de que quiere continuar?";
+                const string title = "¿Cerrar?";
+                DialogResult dialogResult = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    txtOrderNum.Text = "";
+                    cbClient.Text = "";
+                    txtDescription.Text = "";
+                    txtCostPrice.Text = "";
+                    txtlbSalePrice.Text = "";
+                    cbProvider.Text = "";
+                    txtLink.Text = "";
+                    txtAnnotation.Text = "";
+
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                this.Close();
+            }
+
+
+                
+
+           
         }
 
 
