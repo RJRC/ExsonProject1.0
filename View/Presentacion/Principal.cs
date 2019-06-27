@@ -115,5 +115,11 @@ namespace View.Presentacion
             }
 
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            dashBoard dashBoard = new dashBoard();
+            dashBoard.Show();
+        }
     }
 }

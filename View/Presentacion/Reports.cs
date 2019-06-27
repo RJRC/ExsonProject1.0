@@ -9,23 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 
+
 namespace View.Presentacion
 {
     public partial class Reports : Form
     {
-        private OrderBLL bll = new OrderBLL();
+        private OrderBLL orderBll = new OrderBLL();
+        private ReportsBLL reportsBll = new ReportsBLL();
 
         public Reports()
         {
             InitializeComponent();
             loadOrderView();
+
         }
 
         public void loadOrderView()
         {
 
-            dataGridView1.DataSource = bll.showOrders();
-
+            dataGridView1.DataSource = orderBll.showOrders();
+            comboStatus.DataSource = reportsBll.getStatusValues();
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -76,6 +79,35 @@ namespace View.Presentacion
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime startSearch = dateSince.Value.Date;
+            DateTime finishSearch = dtUntil.Value.Date;
+            string status = comboStatus.SelectedValue.ToString();
+
+            //dataGridView1.DataSource = null;
+            dataGridView1.DataSource = orderBll.getOrderWithFilter(startSearch, finishSearch, status);
+
+            //
+
+           MessageBox.Show("Filtro: \n" + "Fecha de inicio: " + startSearch.ToShortDateString() + "\nFecha de Fin: " + finishSearch.ToShortDateString() + "\nEstado: " + status, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            if (reportsBll.downloadReport10(this.dataGridView1))
+            {
+                MessageBox.Show("Se realizo la exportación con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = orderBll.showOrders();
         }
     }
 }

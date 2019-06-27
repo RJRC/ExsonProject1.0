@@ -65,5 +65,34 @@ namespace BLL
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
+        
+        public DataTable showAllState()
+        {
+            return new OrderADL().getAllState();
+        }
+
+        public DataTable totalOrdersByMonth()
+        {
+            return new OrderADL().totalOrdersByMonth();
+        }
+
+        public DataTable totalsales()
+        {
+            return new OrderADL().totalsales();
+        }
+
+        public DataTable getOrderWithFilter(DateTime startDate, DateTime finishDate, string status)
+        {
+
+            string newStartDate = startDate.Year + "-" + startDate.Month + "-" + startDate.Day;
+            string newFinishDate = finishDate.Year + "-" + finishDate.Month + "-" + finishDate.Day;
+
+            return new OrderADL().getOrderFromDBWithFilter(newStartDate, newFinishDate, status);
+        }
+
+
+
     }
 }

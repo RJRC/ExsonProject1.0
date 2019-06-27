@@ -19,6 +19,7 @@ namespace View.Presentacion
             if(!orderUpdate.Equals(""))
             {
                 DataTable dataTableOrder = new DataTable();
+                DataTable dataTableAllState = new DataTable();
 
                 dataTableOrder = orderBLL.showOrderByID(orderUpdate);
 
