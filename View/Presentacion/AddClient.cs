@@ -23,6 +23,12 @@ namespace View
         public AddClient()
         {
             InitializeComponent();
+            txtName.MaxLength = 20;
+            txtLastName1.MaxLength = 20;
+            txtLastName2.MaxLength = 20;
+            txtPhone1.MaxLength = 8;
+            txtPhone2.MaxLength = 8;
+            txtMail.MaxLength = 50;
         }
 
         public AddClient(string id)
@@ -31,7 +37,12 @@ namespace View
             DataTable dtcust = clientBLL.showSearchClients(id);
 
             InitializeComponent();
-
+            txtName.MaxLength = 20;
+            txtLastName1.MaxLength = 20;
+            txtLastName2.MaxLength = 20;
+            txtPhone1.MaxLength = 8;
+            txtPhone2.MaxLength = 8;
+            txtMail.MaxLength = 50;
 
             idLbl.Text = id;
             txtName.Text = dtcust.Rows[0]["Nombre"].ToString();
