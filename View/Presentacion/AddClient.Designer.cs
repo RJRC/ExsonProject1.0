@@ -47,9 +47,9 @@
             this.txtLastName2 = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.idLbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
             panel5 = new System.Windows.Forms.Panel();
@@ -219,6 +219,7 @@
             this.txtPhone2.Name = "txtPhone2";
             this.txtPhone2.Size = new System.Drawing.Size(268, 39);
             this.txtPhone2.TabIndex = 40;
+            this.txtPhone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone2_KeyPress);
             // 
             // label5
             // 
@@ -240,6 +241,7 @@
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(268, 39);
             this.txtPhone1.TabIndex = 38;
+            this.txtPhone1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone1_KeyPress);
             // 
             // txtLastName2
             // 
@@ -271,15 +273,18 @@
             this.panel1.Size = new System.Drawing.Size(954, 46);
             this.panel1.TabIndex = 46;
             // 
-            // panel2
+            // idLbl
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(963, 15);
-            this.panel2.TabIndex = 47;
+            this.idLbl.AutoSize = true;
+            this.idLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idLbl.ForeColor = System.Drawing.Color.White;
+            this.idLbl.Location = new System.Drawing.Point(872, 2);
+            this.idLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.idLbl.Name = "idLbl";
+            this.idLbl.Size = new System.Drawing.Size(37, 40);
+            this.idLbl.TabIndex = 38;
+            this.idLbl.Text = "0";
+            this.idLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label7
             // 
@@ -294,18 +299,15 @@
             this.label7.Text = "Codigo Cliente:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // idLbl
+            // panel2
             // 
-            this.idLbl.AutoSize = true;
-            this.idLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idLbl.ForeColor = System.Drawing.Color.White;
-            this.idLbl.Location = new System.Drawing.Point(872, 2);
-            this.idLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.idLbl.Name = "idLbl";
-            this.idLbl.Size = new System.Drawing.Size(37, 40);
-            this.idLbl.TabIndex = 38;
-            this.idLbl.Text = "0";
-            this.idLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(963, 15);
+            this.panel2.TabIndex = 47;
             // 
             // AddClient
             // 
