@@ -13,6 +13,7 @@ namespace View.Presentacion
         {
             InitializeComponent();
             loadOrderView();
+            txtFind.MaxLength = 30;
         }
 
 

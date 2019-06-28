@@ -10,6 +10,7 @@ namespace View.Presentacion
         public Customer()
         {
             InitializeComponent();
+            txtFind.MaxLength = 30;
             loadCustomerView();
         }
 
