@@ -13,6 +13,16 @@ namespace View.Presentacion
         public Add(String idUpdate)
         {
             InitializeComponent();
+
+            cbClient.MaxLength = 20;
+            txtOrderNum.MaxLength = 20;
+            txtDescription.MaxLength = 50;
+            cbProvider.MaxLength = 30;
+            cb_Status.MaxLength = 20;
+            txtLink.MaxLength = 200;
+            txtAnnotation.MaxLength = 500;
+
+
             orderBLL.fillProviderComboBox(cbProvider);
             clientBLL.fillClientComboBox(cbClient);
             orderBLL.fillStatusComboBox(cb_Status);
@@ -21,6 +31,7 @@ namespace View.Presentacion
 
             if(!orderUpdate.Equals(""))
             {
+
                 DataTable dataTableOrder = new DataTable();
                 DataTable dataTableAllState = new DataTable();
 
@@ -45,6 +56,14 @@ namespace View.Presentacion
         public Add()
         {
             InitializeComponent();
+            cbClient.MaxLength = 20;
+            txtOrderNum.MaxLength = 20;
+            txtDescription.MaxLength = 50;
+            cbProvider.MaxLength = 30;
+            cb_Status.MaxLength = 20;
+            txtLink.MaxLength = 200;
+            txtAnnotation.MaxLength = 500;
+
             lb_State.Visible = false;
             cb_Status.Visible = false;
             orderBLL.fillProviderComboBox(cbProvider);
@@ -151,6 +170,29 @@ namespace View.Presentacion
            
         }
 
+        private void txtCostPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
 
+        private void txtlbSalePrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtlbSalePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

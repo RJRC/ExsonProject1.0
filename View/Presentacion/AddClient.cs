@@ -129,7 +129,7 @@ namespace View
                     MessageBox.Show("El formato del correo era dudoso", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
-                MessageBox.Show("Cliente agregado con exito", "Información" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cliente agregado con exito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
