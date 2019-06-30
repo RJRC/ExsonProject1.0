@@ -113,6 +113,11 @@ namespace View
                 MessageBox.Show("Verificar campo obligatorio de teléfono 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
+            else if (!txtPhone2.Text.Equals("")  && !txtPhone2.Text.Equals("0")) {
+                 if (txtPhone2.Text.Length < 8) {
+                MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
             else
             {
 
