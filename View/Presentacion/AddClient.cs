@@ -23,6 +23,12 @@ namespace View
         public AddClient()
         {
             InitializeComponent();
+            txtName.MaxLength = 20;
+            txtLastName1.MaxLength = 20;
+            txtLastName2.MaxLength = 20;
+            txtPhone1.MaxLength = 8;
+            txtPhone2.MaxLength = 8;
+            txtMail.MaxLength = 50;
         }
 
         public AddClient(string id)
@@ -31,7 +37,12 @@ namespace View
             DataTable dtcust = clientBLL.showSearchClients(id);
 
             InitializeComponent();
-            
+            txtName.MaxLength = 20;
+            txtLastName1.MaxLength = 20;
+            txtLastName2.MaxLength = 20;
+            txtPhone1.MaxLength = 8;
+            txtPhone2.MaxLength = 8;
+            txtMail.MaxLength = 50;
 
             idLbl.Text = id;
             txtName.Text = dtcust.Rows[0]["Nombre"].ToString();
@@ -43,11 +54,10 @@ namespace View
             txtPhone1.Text = dtcust.Rows[0]["Teléfono 1"].ToString();
             txtPhone2.Text = dtcust.Rows[0]["Teléfono 2"].ToString();
             txtMail.Text = dtcust.Rows[0]["Correo Electrónico"].ToString();
-             
-            
+
         }
 
-       
+
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -67,12 +77,12 @@ namespace View
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-           // Home route = new Home();
+            // Home route = new Home();
             //route.ShowDialog();
             this.Close();
         }
 
-      
+
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -93,25 +103,40 @@ namespace View
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-            string id = idLbl.Text;
-            string name = txtName.Text;
-            string lastName = txtLastName1.Text;
-            string lastName2 = txtLastName2.Text;
 
-            string phoneNumber1 = txtPhone1.Text;
-            string phoneNumber2 = txtPhone2.Text;
+            if (clientBLL.validationEmptyTxt(txtName.Text, txtLastName1.Text, txtLastName2.Text, txtPhone1.Text))
+            {
+                MessageBox.Show("Por favor ingrese todos los datos que se solicitan", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
 
-            string email = txtMail.Text;
+                string id = idLbl.Text;
+                string name = txtName.Text;
+                string lastName = txtLastName1.Text;
+                string lastName2 = txtLastName2.Text;
 
-            clientBLL.addOrEditClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email,id);
+                string phoneNumber1 = txtPhone1.Text;
+                string phoneNumber2 = txtPhone2.Text;
 
-            this.Close();
+                string email = txtMail.Text;
 
-            //Save Data Client
+                clientBLL.addOrEditClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email, id);
+
+                this.Close();
+
+                if (!clientBLL.validationEmailFormat(email))
+                    MessageBox.Show("El formato del correo era dudoso", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                MessageBox.Show("Cliente agregado con exito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
 
         }
 
-        
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -128,5 +153,24 @@ namespace View
 
         }
 
+        private void txtPhone1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPhone2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
