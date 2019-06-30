@@ -127,7 +127,6 @@
             this.bt_close.TabIndex = 1;
             this.bt_close.Text = "Cerrar";
             this.bt_close.UseVisualStyleBackColor = true;
-            this.bt_close.Click += new System.EventHandler(this.bt_generate_Click);
             // 
             // panel1
             // 
@@ -206,7 +205,7 @@
             this.lb_showTotalCost.Name = "lb_showTotalCost";
             this.lb_showTotalCost.Size = new System.Drawing.Size(37, 40);
             this.lb_showTotalCost.TabIndex = 16;
-            this.lb_showTotalCost.Text = "$";
+            this.lb_showTotalCost.Text = "¢";
             this.lb_showTotalCost.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // pictureBox1

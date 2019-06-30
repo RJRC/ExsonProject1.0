@@ -24,10 +24,6 @@ namespace View.Presentacion
             generateLbCostTotal();
         }
 
-        private void bt_generate_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         public void methodGenerateGraphic()
         {
