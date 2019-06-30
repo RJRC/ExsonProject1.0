@@ -390,6 +390,7 @@
             this.cbClient.Name = "cbClient";
             this.cbClient.Size = new System.Drawing.Size(578, 37);
             this.cbClient.TabIndex = 39;
+            this.cbClient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbClient_KeyPress);
             // 
             // Add
             // 

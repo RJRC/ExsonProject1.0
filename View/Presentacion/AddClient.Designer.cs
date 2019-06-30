@@ -131,6 +131,7 @@
             this.txtLastName1.Name = "txtLastName1";
             this.txtLastName1.Size = new System.Drawing.Size(268, 39);
             this.txtLastName1.TabIndex = 31;
+            this.txtLastName1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName1_KeyPress);
             // 
             // lbOrderNum
             // 
@@ -154,6 +155,7 @@
             this.txtName.Size = new System.Drawing.Size(268, 39);
             this.txtName.TabIndex = 29;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // btnSave
             // 
@@ -251,6 +253,7 @@
             this.txtLastName2.Name = "txtLastName2";
             this.txtLastName2.Size = new System.Drawing.Size(268, 39);
             this.txtLastName2.TabIndex = 44;
+            this.txtLastName2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName2_KeyPress);
             // 
             // txtMail
             // 
