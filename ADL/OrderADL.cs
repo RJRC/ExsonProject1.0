@@ -290,7 +290,7 @@ namespace ADL
                 conection = conectionADL.GetConnection();
                 conection.Open();
 
-                string storedProcedure = "showAllState";
+                string storedProcedure = "showStatusProcedure";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
