@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using ADL;
 
 using Microsoft.Office.Interop.Excel;
-
+using DataTable = System.Data.DataTable;
 
 namespace BLL
 {
@@ -94,6 +94,32 @@ namespace BLL
 
 
         }
+
+        /// <summary>
+        /// The totalCostsYear method
+        /// Returns the total cost in years
+        /// </summary>
+        /// <returns>
+        /// Returns the total cost in years
+        /// </returns>
+        public DataTable totalCostsYear()
+        {
+            return new ReportsADL().totalCostsYear();
+        }
+
+
+        /// <summary>
+        /// The showComparativeCostsAndSalesMonth method
+        /// Show comparative cost and sales
+        /// </summary>
+        /// <returns>
+        /// Returns a datatable with comparative information. 
+        /// </returns>
+        public DataTable showComparativeCostsAndSalesMonth()
+        {
+            return new ReportsADL().showComparativeCostsAndSalesMonth();
+        }
+
 
 
         /// <summary>

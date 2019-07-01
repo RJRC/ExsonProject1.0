@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using BLL;
 
 namespace View.Presentacion
@@ -24,6 +25,12 @@ namespace View.Presentacion
         private OrderBLL bll = new OrderBLL();
 
         /// <summary>
+        /// Variable with the instance of ReportsBLL.
+        /// </summary>
+        private ReportsBLL rll = new ReportsBLL();
+
+
+        /// <summary>
         /// Builder of DashBoard class.
         /// </summary>
         public DashBoard()
@@ -33,6 +40,8 @@ namespace View.Presentacion
             generateLbTotalSales();
             countSales();
             generateLbCostTotal();
+            methodGenerateGraphicCosts();
+            methodGenerateGraphicComparativeCostSale();
         }
 
         /// <summary>
@@ -50,6 +59,44 @@ namespace View.Presentacion
             chart_salesPerMonth.DataSource = dataTableOrder;
             chart_salesPerMonth.DataBind();
             chart_salesPerMonth.Visible = true;
+        }
+
+
+        /// <summary>
+        /// The methodGenerateGraphicCosts method
+        /// Generates graphics of cost
+        /// </summary>
+        public void methodGenerateGraphicCosts()
+        {
+
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = rll.totalCostsYear();
+
+            chartCosts.Series["Costos"].XValueMember = "Año";
+            chartCosts.Series["Costos"].YValueMembers = "TotalCosto";
+            chartCosts.DataSource = dataTableOrder;
+            chartCosts.DataBind();
+            chartCosts.Visible = true;
+
+        }
+
+        /// <summary>
+        /// The methodGenerateGraphicComparativeCostSale method
+        /// Generates graphics of cost and sales
+        /// </summary>
+        public void methodGenerateGraphicComparativeCostSale()
+        {
+
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = rll.showComparativeCostsAndSalesMonth();
+
+            chartComparativeCostsSales.Series["Costos"].XValueMember = "Mes";
+            chartComparativeCostsSales.Series["Costos"].YValueMembers = "TotalCosto";
+            chartComparativeCostsSales.Series["Ventas"].YValueMembers = "TotalVenta";
+            chartComparativeCostsSales.DataSource = dataTableOrder;
+            chartComparativeCostsSales.DataBind();
+            chartComparativeCostsSales.Visible = true;
+
         }
 
         /// <summary>
@@ -81,14 +128,16 @@ namespace View.Presentacion
         /// Generates a label with the count of the orders.
         /// </summary>
         private void countSales() {
+
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.countSalesBLL();
             DataRow dataRow = dataTableOrder.Rows[0];
             lb_showCountSales.Text += dataRow["countOrders"].ToString();
         }
 
+
         private void panel3_Paint(object sender, PaintEventArgs e)
-        {
+        { 
 
         }
     }

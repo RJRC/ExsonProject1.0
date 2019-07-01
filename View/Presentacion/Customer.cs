@@ -15,6 +15,7 @@ namespace View.Presentacion
         /// </summary>
         private ClientBLL clientBLL=new ClientBLL();
 
+
         /// <summary>
         /// Builder of Customer class.
         /// </summary>
@@ -31,6 +32,7 @@ namespace View.Presentacion
         /// </summary>
         private void loadCustomerView() {
             dgvClients.DataSource = clientBLL.showClients();
+            //dgvClients.DataSource = clientBLL2.totalCostsYear();
         }
 
 
