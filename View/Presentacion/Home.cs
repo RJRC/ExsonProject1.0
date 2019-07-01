@@ -4,11 +4,21 @@ using BLL;
 
 namespace View.Presentacion
 {
+    /// <summary>
+    /// The Home class 
+    /// Contains all methods for the home in the View Layer.
+    /// </summary>
     public partial class Home : Form
     {
 
-        private  OrderBLL bll = new OrderBLL();
+        /// <summary>
+        /// Variable with the instance of OrderBLL.
+        /// </summary>
+        private OrderBLL bll = new OrderBLL();
 
+        /// <summary>
+        /// Builder of Home class.
+        /// </summary>
         public Home()
         {
             InitializeComponent();
@@ -16,7 +26,10 @@ namespace View.Presentacion
             txtFind.MaxLength = 30;
         }
 
-
+        /// <summary>
+        /// The loadOrderView method 
+        /// Load the dataGridView1 with orders information.
+        /// </summary>
         public void loadOrderView()
         {
 
@@ -24,6 +37,10 @@ namespace View.Presentacion
 
         }
 
+        /// <summary>
+        /// The dataGridView1_CellContentClick method 
+        /// Delete and Modify an order by id.
+        /// </summary>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -64,6 +81,10 @@ namespace View.Presentacion
             }
         }
 
+        /// <summary>
+        /// The txtFind_TextChanged method 
+        /// Search orders.
+        /// </summary>
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
             string textToSearch = txtFind.Text;
@@ -73,6 +94,10 @@ namespace View.Presentacion
             } 
         }
 
+        /// <summary>
+        /// The panel2_Paint method 
+        /// 
+        /// </summary>
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 

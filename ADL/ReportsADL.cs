@@ -8,13 +8,32 @@ using System.Threading.Tasks;
 
 namespace ADL
 {
+    /// <summary>
+    /// The ReportsADL class 
+    /// Contains all methods for the reports.
+    /// </summary>
     public class ReportsADL
     {
+        /// <summary>
+        /// Variable with the instance of ConnectionADL.
+        /// </summary>
+        private ConnectionADL conectionADL = new ConnectionADL();
 
-        private ConectionADL conectionADL = new ConectionADL();
+        /// <summary>
+        /// Variable with the connection of MySQL.
+        /// </summary>
         private MySqlConnection conection;
 
-        public List<string> getStatusValuesFromDB() {
+
+        /// <summary>
+        /// The getStatusValuesFromDB method 
+        /// Get the status from the database.
+        /// </summary>
+        ///<return>
+        /// Returns a list with the status information.
+        ///</return>
+        public List<string> getStatusValuesFromDB()
+        {
 
             try
             {
@@ -38,7 +57,8 @@ namespace ADL
 
                 List<string> listOfStatusValues = new List<string>();
 
-                foreach (DataRow row in dataTable.Rows) {
+                foreach (DataRow row in dataTable.Rows)
+                {
 
                     listOfStatusValues.Add(row["Estatus"].ToString());
 

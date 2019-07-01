@@ -13,17 +13,38 @@ using Microsoft.Office.Interop.Excel;
 
 namespace BLL
 {
+    /// <summary>
+    /// The ReportsBLL class 
+    /// Contains all methods for the reports in the Business Logic Layer.
+    /// </summary>
     public class ReportsBLL
     {
 
+        /// <summary>
+        /// The getStatusValues method 
+        /// Get the status from the ReportsADL class.
+        /// </summary>
+        ///<return>
+        /// Returns a list with the status information.
+        ///</return>
         public List<string> getStatusValues()
         {
 
             return new ReportsADL().getStatusValuesFromDB();
         }
 
-
-        public bool downloadReport10(DataGridView dataGridView_ShowAllData) {
+        /// <summary>
+        /// The downloadReport method 
+        /// Download a report with the orders information.
+        /// </summary>
+        ///<return>
+        /// Returns true if the download is success and false if don't .
+        ///</return>
+        ///<param name="dataGridView_ShowAllData">
+        /// This is the gridview with the information to download.
+        ///</param>
+        public bool downloadReport(DataGridView dataGridView_ShowAllData)
+        {
 
             Microsoft.Office.Interop.Excel.Application xlApp;
             Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
@@ -63,15 +84,25 @@ namespace BLL
                 releaseObject(xlApp);
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
 
 
-           
+
 
 
         }
+
+
+        /// <summary>
+        /// The releaseObject method 
+        /// Try if the download has an error.
+        /// </summary>
+        ///<param name="obj">
+        /// This is the obj to try.
+        ///</param>
         private void releaseObject(object obj)
         {
             try

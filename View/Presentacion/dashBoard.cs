@@ -11,11 +11,22 @@ using BLL;
 
 namespace View.Presentacion
 {
-    public partial class dashBoard : Form
+    /// <summary>
+    /// The DashBoard class 
+    /// Contains all methods for the dashBoard in the View Layer.
+    /// </summary>
+    public partial class DashBoard : Form
     {
 
+        /// <summary>
+        /// Variable with the instance of OrderBLL.
+        /// </summary>
         private OrderBLL bll = new OrderBLL();
-        public dashBoard()
+
+        /// <summary>
+        /// Builder of DashBoard class.
+        /// </summary>
+        public DashBoard()
         {
             InitializeComponent();
             methodGenerateGraphic();
@@ -24,7 +35,10 @@ namespace View.Presentacion
             generateLbCostTotal();
         }
 
-
+        /// <summary>
+        /// The methodGenerateGraphic method 
+        /// Generates a graphic with the sales information.
+        /// </summary>
         public void methodGenerateGraphic()
         {
             DataTable dataTableOrder = new DataTable();
@@ -38,6 +52,10 @@ namespace View.Presentacion
             chart_salesPerMonth.Visible = true;
         }
 
+        /// <summary>
+        /// The generateLbTotalSales method 
+        /// Generates a label with the total of the sales.
+        /// </summary>
         private void generateLbTotalSales()
         {
             DataTable dataTableOrder = new DataTable();
@@ -46,6 +64,10 @@ namespace View.Presentacion
             lb_showTotalSales.Text += dataRow["TotalVentas"].ToString();
         }
 
+        /// <summary>
+        /// The generateLbCostTotal method 
+        /// Generates a label with the cost of the orders.
+        /// </summary>
         private void generateLbCostTotal()
         {
             DataTable dataTableOrder = new DataTable();
@@ -54,11 +76,20 @@ namespace View.Presentacion
             lb_showTotalCost.Text += dataRow["costOrders"].ToString();
         }
 
+        /// <summary>
+        /// The countSales method 
+        /// Generates a label with the count of the orders.
+        /// </summary>
         private void countSales() {
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.countSalesBLL();
             DataRow dataRow = dataTableOrder.Rows[0];
             lb_showCountSales.Text += dataRow["countOrders"].ToString();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

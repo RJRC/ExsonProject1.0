@@ -5,11 +5,30 @@ using BLL;
 
 namespace View.Presentacion
 {
+    /// <summary>
+    /// The Customer class 
+    /// Contains all methods for the Customer in the View Layer.
+    /// </summary>
     public partial class Add : Form
     {
+        /// <summary>
+        /// Variable with the instance of OrderBLL.
+        /// </summary>
         private OrderBLL orderBLL = new OrderBLL();
+
+        /// <summary>
+        /// Variable with the instance of ClientBLL.
+        /// </summary>
         private ClientBLL clientBLL = new ClientBLL();
+
+        /// <summary>
+        /// Variable with the order id.
+        /// </summary>
         private String orderUpdate = "";
+
+        /// <summary>
+        /// Builder of Add class.
+        /// </summary>
         public Add(String idUpdate)
         {
             InitializeComponent();
@@ -53,6 +72,9 @@ namespace View.Presentacion
             
         }
 
+        /// <summary>
+        /// Builder of Add class.
+        /// </summary>
         public Add()
         {
             InitializeComponent();
@@ -71,6 +93,10 @@ namespace View.Presentacion
         }
 
 
+        /// <summary>
+        /// The Button1_Click method 
+        /// Open a window to add a client.
+        /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
             AddClient route = new AddClient();
@@ -78,7 +104,10 @@ namespace View.Presentacion
         
         }
 
-
+        /// <summary>
+        /// The btnSave_Click method 
+        /// Save an Order.
+        /// </summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!txtOrderNum.Text.Trim().Equals("") && !cbClient.Text.Trim().Equals("") && !txtOrderNum.Text.Trim().Equals("") && !txtDescription.Text.Trim().Equals("") && !txtCostPrice.Text.Trim().Equals("") && !txtlbSalePrice.Text.Trim().Equals("") &&
@@ -133,6 +162,10 @@ namespace View.Presentacion
             }
         }
 
+        /// <summary>
+        /// The btnCancel_Click method 
+        /// Cancel an Order.
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if (!txtOrderNum.Text.Trim().Equals("") || !cbClient.Text.Trim().Equals("") || !txtOrderNum.Text.Trim().Equals("") 
@@ -163,13 +196,12 @@ namespace View.Presentacion
             {
                 this.Close();
             }
-
-
-                
-
-           
         }
 
+        /// <summary>
+        /// The txtCostPrice_KeyPress method 
+        /// Validate the price.
+        /// </summary>
         private void txtCostPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -185,6 +217,10 @@ namespace View.Presentacion
 
         }
 
+        /// <summary>
+        /// The txtlbSalePrice_KeyPress method 
+        /// Validate the price.
+        /// </summary>
         private void txtlbSalePrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -195,6 +231,10 @@ namespace View.Presentacion
             }
         }
 
+        /// <summary>
+        /// The cbClient_KeyPress method 
+        /// Validate the client name.
+        /// </summary>
         private void cbClient_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -203,6 +243,11 @@ namespace View.Presentacion
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
