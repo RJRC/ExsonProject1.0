@@ -78,6 +78,11 @@ namespace BLL
             return new ReportsADL().totalCostsYear();
         }
 
+        public DataTable showComparativeCostsAndSalesMonth()
+        {
+            return new ReportsADL().showComparativeCostsAndSalesMonth();
+        }
+
 
         private void releaseObject(object obj)
         {

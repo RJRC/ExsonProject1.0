@@ -14,7 +14,8 @@ namespace ADL
         private ConectionADL conectionADL = new ConectionADL();
         private MySqlConnection conection;
 
-        public List<string> getStatusValuesFromDB() {
+        public List<string> getStatusValuesFromDB()
+        {
 
             try
             {
@@ -38,7 +39,8 @@ namespace ADL
 
                 List<string> listOfStatusValues = new List<string>();
 
-                foreach (DataRow row in dataTable.Rows) {
+                foreach (DataRow row in dataTable.Rows)
+                {
 
                     listOfStatusValues.Add(row["Estatus"].ToString());
 
@@ -66,6 +68,42 @@ namespace ADL
                 conection.Open();
 
                 string storedProcedure = "totalCosts_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
+
+
+        public DataTable showComparativeCostsAndSalesMonth()
+        {
+
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "showComparativeCostsAndSalesMonth";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 

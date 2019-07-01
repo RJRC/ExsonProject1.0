@@ -25,7 +25,8 @@ namespace View.Presentacion
             generateLbTotalSales();
             countSales();
             generateLbCostTotal();
-            methodGenerateGraphicLine();
+            methodGenerateGraphicCosts();
+            methodGenerateGraphicComparativeCostSale();
         }
 
 
@@ -42,7 +43,7 @@ namespace View.Presentacion
             chart_salesPerMonth.Visible = true;
         }
 
-        public void methodGenerateGraphicLine()
+        public void methodGenerateGraphicCosts()
         {
 
             DataTable dataTableOrder = new DataTable();
@@ -53,6 +54,21 @@ namespace View.Presentacion
             chartCosts.DataSource = dataTableOrder;
             chartCosts.DataBind();
             chartCosts.Visible = true;
+
+        }
+
+        public void methodGenerateGraphicComparativeCostSale()
+        {
+
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = rll.showComparativeCostsAndSalesMonth();
+
+            chartComparativeCostsSales.Series["Costos"].XValueMember = "Mes";
+            chartComparativeCostsSales.Series["Costos"].YValueMembers = "TotalCosto";
+            chartComparativeCostsSales.Series["Ventas"].YValueMembers = "TotalVenta";
+            chartComparativeCostsSales.DataSource = dataTableOrder;
+            chartComparativeCostsSales.DataBind();
+            chartComparativeCostsSales.Visible = true;
 
         }
 

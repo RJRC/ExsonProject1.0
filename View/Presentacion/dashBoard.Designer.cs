@@ -35,9 +35,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_salesPerMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bt_close = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -55,7 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartComparativeCostsSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartCosts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart_salesPerMonth)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartComparativeCostsSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartCosts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,23 +305,33 @@
             this.panel5.Size = new System.Drawing.Size(900, 154);
             this.panel5.TabIndex = 14;
             // 
-            // chart1
+            // chartComparativeCostsSales
             // 
-            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            this.chartComparativeCostsSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
             chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            this.chartComparativeCostsSales.ChartAreas.Add(chartArea2);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(150, 571);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chart1.Name = "chart1";
+            this.chartComparativeCostsSales.Legends.Add(legend1);
+            this.chartComparativeCostsSales.Location = new System.Drawing.Point(155, 579);
+            this.chartComparativeCostsSales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chartComparativeCostsSales.Name = "chartComparativeCostsSales";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.Blue;
             series2.Legend = "Legend1";
-            series2.Name = "Total ventas";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(432, 292);
-            this.chart1.TabIndex = 15;
-            this.chart1.Text = "salesPerMonth";
+            series2.Name = "Costos";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.IsValueShownAsLabel = true;
+            series3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series3.Legend = "Legend1";
+            series3.Name = "Ventas";
+            this.chartComparativeCostsSales.Series.Add(series2);
+            this.chartComparativeCostsSales.Series.Add(series3);
+            this.chartComparativeCostsSales.Size = new System.Drawing.Size(516, 322);
+            this.chartComparativeCostsSales.TabIndex = 15;
+            this.chartComparativeCostsSales.Text = "CostAndSale";
             // 
             // chartCosts
             // 
@@ -329,18 +340,21 @@
             this.chartCosts.ChartAreas.Add(chartArea3);
             legend2.Name = "Legend1";
             this.chartCosts.Legends.Add(legend2);
-            this.chartCosts.Location = new System.Drawing.Point(664, 571);
+            this.chartCosts.Location = new System.Drawing.Point(692, 571);
             this.chartCosts.Name = "chartCosts";
-            series3.BorderColor = System.Drawing.Color.Yellow;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.Yellow;
-            series3.Legend = "Legend1";
-            series3.Name = "Costos";
-            series3.ShadowColor = System.Drawing.Color.Black;
-            this.chartCosts.Series.Add(series3);
-            this.chartCosts.Size = new System.Drawing.Size(300, 300);
+            this.chartCosts.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series4.BorderColor = System.Drawing.Color.Yellow;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Funnel;
+            series4.Color = System.Drawing.Color.Yellow;
+            series4.IsValueShownAsLabel = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Costos";
+            series4.ShadowColor = System.Drawing.Color.Black;
+            this.chartCosts.Series.Add(series4);
+            this.chartCosts.Size = new System.Drawing.Size(358, 330);
             this.chartCosts.TabIndex = 16;
+            this.chartCosts.Tag = "";
             this.chartCosts.Text = "chartCosts";
             // 
             // dashBoard
@@ -350,7 +364,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1200, 915);
             this.Controls.Add(this.chartCosts);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartComparativeCostsSales);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -369,7 +383,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartComparativeCostsSales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartCosts)).EndInit();
             this.ResumeLayout(false);
 
@@ -394,7 +408,7 @@
         private System.Windows.Forms.Label lb1;
         private System.Windows.Forms.Label lb_showTotalCost;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartComparativeCostsSales;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartCosts;
     }
 }
