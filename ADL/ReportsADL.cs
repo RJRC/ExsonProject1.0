@@ -56,6 +56,41 @@ namespace ADL
         }
 
 
+        public DataTable totalCostsYear()
+        {
+
+
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "totalCosts_procedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
+
+
+        }
 
 
 

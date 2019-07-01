@@ -7,6 +7,8 @@ namespace View.Presentacion
     {
 
         private ClientBLL clientBLL=new ClientBLL();
+        //private ReportsBLL clientBLL2 = new ReportsBLL();
+
         public Customer()
         {
             InitializeComponent();
@@ -16,6 +18,7 @@ namespace View.Presentacion
 
         private void loadCustomerView() {
             dgvClients.DataSource = clientBLL.showClients();
+            //dgvClients.DataSource = clientBLL2.totalCostsYear();
         }
 
         private void DgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using BLL;
 
 namespace View.Presentacion
@@ -15,6 +16,8 @@ namespace View.Presentacion
     {
 
         private OrderBLL bll = new OrderBLL();
+        private ReportsBLL rll = new ReportsBLL();
+
         public dashBoard()
         {
             InitializeComponent();
@@ -22,6 +25,7 @@ namespace View.Presentacion
             generateLbTotalSales();
             countSales();
             generateLbCostTotal();
+            methodGenerateGraphicLine();
         }
 
 
@@ -36,6 +40,20 @@ namespace View.Presentacion
             chart_salesPerMonth.DataSource = dataTableOrder;
             chart_salesPerMonth.DataBind();
             chart_salesPerMonth.Visible = true;
+        }
+
+        public void methodGenerateGraphicLine()
+        {
+
+            DataTable dataTableOrder = new DataTable();
+            dataTableOrder = rll.totalCostsYear();
+
+            chartCosts.Series["Costos"].XValueMember = "Año";
+            chartCosts.Series["Costos"].YValueMembers = "TotalCosto";
+            chartCosts.DataSource = dataTableOrder;
+            chartCosts.DataBind();
+            chartCosts.Visible = true;
+
         }
 
         private void generateLbTotalSales()
@@ -54,11 +72,19 @@ namespace View.Presentacion
             lb_showTotalCost.Text += dataRow["costOrders"].ToString();
         }
 
-        private void countSales() {
+        private void countSales()
+        {
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.countSalesBLL();
             DataRow dataRow = dataTableOrder.Rows[0];
             lb_showCountSales.Text += dataRow["countOrders"].ToString();
+        }
+
+
+
+        private void chart3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using ADL;
 
 using Microsoft.Office.Interop.Excel;
-
+using DataTable = System.Data.DataTable;
 
 namespace BLL
 {
@@ -72,6 +72,13 @@ namespace BLL
 
 
         }
+
+        public DataTable totalCostsYear()
+        {
+            return new ReportsADL().totalCostsYear();
+        }
+
+
         private void releaseObject(object obj)
         {
             try

@@ -113,9 +113,19 @@ namespace View
                 MessageBox.Show("Verificar campo obligatorio de teléfono 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            else if (!txtPhone2.Text.Equals("")  && !txtPhone2.Text.Equals("0")) {
-                 if (txtPhone2.Text.Length < 8) {
-                MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0"))
+            {
+                if (txtPhone2.Text.Length < 8)
+                {
+                    MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo"))
+            {
+                if (!clientBLL.validationEmailFormat(txtMail.Text))
+                {
+                    MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
             }
             else
@@ -135,8 +145,8 @@ namespace View
 
                 this.Close();
 
-                if (!clientBLL.validationEmailFormat(email))
-                    MessageBox.Show("El correo no es obligatorio, pero el formato puede ser incorrecto o inexistente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //if (!clientBLL.validationEmailFormat(email))
+                //    MessageBox.Show("El correo no es obligatorio, pero el formato puede ser incorrecto o inexistente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
                 MessageBox.Show("Cliente agregado con exito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
