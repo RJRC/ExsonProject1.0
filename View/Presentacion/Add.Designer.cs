@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtLink = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelTittle = new System.Windows.Forms.Label();
             this.dtOrderDate = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddClient = new System.Windows.Forms.Button();
@@ -201,16 +201,16 @@
             this.txtLink.Size = new System.Drawing.Size(600, 29);
             this.txtLink.TabIndex = 22;
             // 
-            // label6
+            // labelTittle
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(-5, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 29);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Nueva Orden";
+            this.labelTittle.AutoSize = true;
+            this.labelTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTittle.ForeColor = System.Drawing.Color.White;
+            this.labelTittle.Location = new System.Drawing.Point(-5, 0);
+            this.labelTittle.Name = "labelTittle";
+            this.labelTittle.Size = new System.Drawing.Size(156, 29);
+            this.labelTittle.TabIndex = 25;
+            this.labelTittle.Text = "Nueva Orden";
             // 
             // dtOrderDate
             // 
@@ -226,7 +226,7 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.labelTittle);
             this.panel3.Location = new System.Drawing.Point(101, 49);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 30);
@@ -424,7 +424,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtLink;
         private System.Windows.Forms.Button btnAddClient;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelTittle;
         private System.Windows.Forms.DateTimePicker dtOrderDate;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtCostPrice;

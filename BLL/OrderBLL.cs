@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using ADL;
@@ -22,7 +23,7 @@ namespace BLL
         ///</return>
         public DataTable showOrders()
         {
-            return new OrderADL().getOrderFromDB();
+            return new OrderADL().getOrdersFromDB();
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace BLL
         ///<param name="costSale">
         /// This is the cost of sale of the order to add.
         ///</param>
-        public void addOrder(int orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale, string status)
+        public void addOrder(string orderID, String provider, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale, string status)
         {
             OrderADL orderADL = new OrderADL();
             int intStatus = 0;
@@ -80,16 +81,53 @@ namespace BLL
                 intStatus = 1;
             }
             else
-            {
-                DataTable dataTableId = orderADL.getStatusIdADL(status);
+            {  
 
-                DataRow dataRow = dataTableId.Rows[0];
+                intStatus = convertStatusToInt(status);
 
-                // intStatus = orderADL.getStatusIdADL(status);   
             }
 
             orderADL.addOrderToDB(orderID, provider, intStatus, partyName, date, linkProduct, description, annotation, costPrice, costSale);
 
+        }
+
+        /// <summary>
+        /// The convertStatusToInt method
+        /// Convert a status into a number.
+        /// </summary>
+        /// <param name="status">
+        /// This is the status to convert.
+        /// </param>
+        /// <returns>
+        /// Number with status information.
+        /// </returns>
+        public int convertStatusToInt(string status) {
+            int variable = 1;
+            switch (status) {
+                case "En Tránsito":
+                    variable = 1;
+                    break;
+                case "Pendiente de Entrega":
+                    variable = 2;
+                    break;
+                case "Entregada":
+                    variable = 3;
+                    break;
+            }
+            return variable;
+        }
+
+        /// <summary>
+        /// The getStatusValuesWithoutTotal method 
+        /// Get the status from the ReportsADL class.
+        /// </summary>
+        ///<return>
+        /// Returns a list with the status information.
+        ///</return>
+        public List<string> getStatusValuesWithoutTotal()
+        {
+
+            return new OrderADL().getStatusValuesFromDBWithOutTotal();
         }
 
 
@@ -295,6 +333,35 @@ namespace BLL
         {
             return new OrderADL().costSalesADL();
 
+        }
+
+        /// <summary>
+        /// The checkOrderNumber method 
+        /// Check if a orderNumber is in the database .
+        /// </summary>
+        ///<param name="orderNumber">
+        /// This is the orderNumber to check.
+        ///</param>
+        public bool checkOrderNumber(string orderNumber)
+        {
+            DataTable dt = new OrderADL().getOrdersFromDB();
+            try
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string name = dr["N. Orden"].ToString();
+                    if (name.Equals(orderNumber)) {
+                        return true;
+                    } 
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
     }

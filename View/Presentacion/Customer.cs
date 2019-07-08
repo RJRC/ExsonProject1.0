@@ -42,7 +42,7 @@ namespace View.Presentacion
         /// </summary>
         private void DgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id = dgvClients.Rows[e.RowIndex].Cells["Codigo Cliente"].FormattedValue.ToString();
+            string id = dgvClients.Rows[e.RowIndex].Cells["Código"].FormattedValue.ToString();
 
             if (dgvClients.Columns[e.ColumnIndex].Name == "Edit")
             {

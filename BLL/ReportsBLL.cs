@@ -33,6 +33,8 @@ namespace BLL
             return new ReportsADL().getStatusValuesFromDB();
         }
 
+        
+
         /// <summary>
         /// The downloadReport method 
         /// Download a report with the orders information.

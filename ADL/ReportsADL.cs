@@ -58,8 +58,8 @@ namespace ADL
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-
-                    listOfStatusValues.Add(row["Estatus"].ToString());
+                    string status = row["Estatus"].ToString();
+                    listOfStatusValues.Add(status);
 
                 }
 
@@ -74,7 +74,7 @@ namespace ADL
 
         }
 
-
+      
         public DataTable totalCostsYear()
         {
 
