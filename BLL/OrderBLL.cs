@@ -154,7 +154,7 @@ namespace BLL
         ///<param name="idOrder">
         /// This is the id of the order to delete.
         ///</param>
-        public void deleteOrderById(int idOrder)
+        public void deleteOrderById(string idOrder)
         {
             new OrderADL().deleteOrderByIdInDB(idOrder);
         }

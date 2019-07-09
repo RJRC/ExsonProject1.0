@@ -118,7 +118,7 @@ namespace ADL
         ///<param name="id">
         /// This is the id of the order to delete.
         ///</param>
-        public void deleteOrderByIdInDB(int idOrder)
+        public void deleteOrderByIdInDB(string  idOrder)
         {
             try
             {

@@ -58,7 +58,7 @@ namespace View.Presentacion
                 // If the yes button was pressed ...
                 if (result == DialogResult.Yes)
                 {
-                    bll.deleteOrderById(int.Parse(id));
+                    bll.deleteOrderById(id);
                     loadOrderView();
                 }
 
