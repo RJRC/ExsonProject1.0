@@ -11,13 +11,16 @@ namespace View.Presentacion
     /// </summary>
     public partial class Principal : Form
     {
+
         /// <summary>
         /// Builder of Principal class.
         /// </summary>
         public Principal()
         {
+
             InitializeComponent();
             openForm<Home>();
+
 
         }
 
@@ -120,6 +123,7 @@ namespace View.Presentacion
         {
             openForm<Home>();
         }
+
 
         /// <summary>
         /// The BtnGeneralReport_Click method 

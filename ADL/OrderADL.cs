@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -30,7 +31,7 @@ namespace ADL
         ///<return>
         /// Returns a datatable with the orders information.
         ///</return>
-        public DataTable getOrderFromDB()
+        public DataTable getOrdersFromDB()
         {
             try
             {
@@ -117,7 +118,7 @@ namespace ADL
         ///<param name="id">
         /// This is the id of the order to delete.
         ///</param>
-        public void deleteOrderByIdInDB(int idOrder)
+        public void deleteOrderByIdInDB(string  idOrder)
         {
             try
             {
@@ -175,7 +176,7 @@ namespace ADL
         ///<param name="costSale">
         /// This is the cost of sale of the order to add.
         ///</param>
-        public void addOrderToDB(int orderID, String provider, int status, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
+        public void addOrderToDB(string orderID, String provider, int status, String partyName, DateTime date, String linkProduct, String description, String annotation, double costPrice, double costSale)
         {
             try
             {
@@ -211,9 +212,10 @@ namespace ADL
 
                 conection.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
 
 
@@ -594,6 +596,58 @@ namespace ADL
 
 
         }
+
+        /// <summary>
+        /// The getStatusValuesFromDBWithOutTotal method 
+        /// Get the status from the database.
+        /// </summary>
+        ///<return>
+        /// Returns a list with the status information.
+        ///</return>
+        public List<string> getStatusValuesFromDBWithOutTotal()
+        {
+
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "showStatusProcedureWithoutAllStatus";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                List<string> listOfStatusValues = new List<string>();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+
+                        listOfStatusValues.Add(row["Estatus"].ToString());
+                    
+
+                }
+
+                conection.Close();
+                return listOfStatusValues;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new List<string>();
+            }
+
+        }
+
 
 
         /// <summary>
