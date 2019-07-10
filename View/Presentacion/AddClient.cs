@@ -46,9 +46,6 @@ namespace View
 
             idLbl.Text = id;
             txtName.Text = dtcust.Rows[0]["Nombre"].ToString();
-            // txtLastName1.Text = dtcust.Rows[0]["Primer Apellido"].ToString();
-            //txtLastName2.Text = dtcust.Rows[0]["Segundo Apellido"].ToString();
-
             txtLastName1.Text = dtcust.Rows[0][2].ToString();
             txtLastName2.Text = dtcust.Rows[0][3].ToString();
             txtPhone1.Text = dtcust.Rows[0]["Teléfono 1"].ToString();
@@ -113,20 +110,15 @@ namespace View
                 MessageBox.Show("Verificar campo obligatorio de teléfono 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0"))
+            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0") && txtPhone2.Text.Length < 8)
             {
-                if (txtPhone2.Text.Length < 8)
-                {
-                    MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo"))
-            {
-                if (!clientBLL.validationEmailFormat(txtMail.Text))
-                {
-                    MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                }
+                MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo") && !clientBLL.validationEmailFormat(txtMail.Text))
+            {
+                MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
