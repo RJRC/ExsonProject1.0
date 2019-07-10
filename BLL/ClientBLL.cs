@@ -94,11 +94,34 @@ namespace BLL
         ///<param name="id">
         /// This is the id of the client to add or edit.
         ///</param>
-        public void addOrEditClient(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email, String id)
+        public bool addOrEditClient(String name, String lastName1, String lastName2, String phoneNumber1, String phoneNumber2, String email, String id)
         {
+            try
+            {
+                if (!int.TryParse(id, out int intId))
+                {
+                    id += 0;
+                }
+
+              if (!int.TryParse(phoneNumber2, out int phone2) )
+                {
+                    return new ClientADL().addOrEditClientInDB(name, lastName1, lastName2, int.Parse(phoneNumber1), email, int.Parse(id));
+                }
+                else { 
+
+                return  new ClientADL().addOrEditClientInDB(name, lastName1, lastName2, int.Parse(phoneNumber1), phone2, email, intId);
+
+               }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("¡Error al guardar!\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
 
-            new ClientADL().addOrEditClientInDB(name, lastName1, lastName2, int.Parse(phoneNumber1), int.Parse(phoneNumber2), email, int.Parse(id));
+
+
 
         }
 

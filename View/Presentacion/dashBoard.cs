@@ -40,7 +40,7 @@ namespace View.Presentacion
             generateLbTotalSales();
             countSales();
             generateLbCostTotal();
-            methodGenerateGraphicCosts();
+            showFirstOrderDate();
             methodGenerateGraphicComparativeCostSale();
         }
 
@@ -61,24 +61,6 @@ namespace View.Presentacion
             chart_salesPerMonth.Visible = true;
         }
 
-
-        /// <summary>
-        /// The methodGenerateGraphicCosts method
-        /// Generates graphics of cost
-        /// </summary>
-        public void methodGenerateGraphicCosts()
-        {
-
-            DataTable dataTableOrder = new DataTable();
-            dataTableOrder = rll.totalCostsYear();
-
-            chartCosts.Series["Costos"].XValueMember = "Año";
-            chartCosts.Series["Costos"].YValueMembers = "TotalCosto";
-            chartCosts.DataSource = dataTableOrder;
-            chartCosts.DataBind();
-            chartCosts.Visible = true;
-
-        }
 
         /// <summary>
         /// The methodGenerateGraphicComparativeCostSale method
@@ -136,9 +118,13 @@ namespace View.Presentacion
         }
 
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        { 
-
+        /// <summary>
+        /// The showFirstOrderDate method 
+        /// show in a label with the date of the oldest order in the DB
+        /// </summary>
+        private void showFirstOrderDate()
+        {
+            lb_startDate.Text += bll.firstOrderADL();
         }
     }
 }

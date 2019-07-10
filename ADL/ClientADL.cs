@@ -213,7 +213,7 @@ namespace ADL
         ///<param name="idParty">
         /// This is the id of the client to add or edit.
         ///</param>
-        public void addOrEditClientInDB(String name, String lastName1, String lastName2,
+        public bool addOrEditClientInDB(String name, String lastName1, String lastName2,
                                         int phoneNumber1, int phoneNumber2, String email,
                                         int idParty)
         {
@@ -245,15 +245,77 @@ namespace ADL
 
 
                 conection.Close();
+
+                return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show("¡Error al guardar!\nError: "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-
-
         }
 
+        /// <summary>
+        /// The addOrEditClientToDB method 
+        /// Add or Edit a client in the database.
+        /// </summary>
+        ///<param name="name">
+        /// This is the name of the client to add or edit.
+        ///</param>
+        ///<param name="lastName1">
+        /// This is the lastName1 of the client to add or edit.
+        ///</param>
+        ///<param name="lastName2">
+        /// This is the lastName2 of the client to add or edit.
+        ///</param>
+        ///<param name="phoneNumber1">
+        /// This is the phoneNumber1 of the client to add or edit.
+        ///</param>
+        ///<param name="email">
+        /// This is the email of the client to add or edit.
+        ///</param>
+        ///<param name="idParty">
+        /// This is the id of the client to add or edit.
+        ///</param>
+        public bool addOrEditClientInDB(String name, String lastName1, String lastName2,int phoneNumber1, String email, int idParty)
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "AddOrEditClient";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("_IdParty", idParty);
+
+                cmd.Parameters.AddWithValue("_Name", name);
+
+                cmd.Parameters.AddWithValue("_LastName1", lastName1);
+
+                cmd.Parameters.AddWithValue("_LastName2", lastName2);
+
+                cmd.Parameters.AddWithValue("_Telephone1", phoneNumber1);
+
+                cmd.Parameters.AddWithValue("_Telephone2", null);
+
+
+                cmd.Parameters.AddWithValue("_Email", email);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                conection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("¡Error al guardar!\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
 
 
     }

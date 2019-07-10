@@ -108,6 +108,21 @@ namespace BLL
             return new OrderADL().serchOrdersInDB(search);
         }
 
+        /// <summary>
+        /// get the date of the first order in the DB in a dataTable and it is converted to string
+        /// </summary>
+        /// <returns>
+        /// returns a string with the date of the oldest order in the DB
+        /// </returns>
+        public string firstOrderADL()
+        {
+            DataTable firstOrder= new OrderADL().firstOrderADL();
+            DataRow dataRow = firstOrder.Rows[0];
+            DateTime date = (DateTime)dataRow["firstOrder"];
+
+            return date.ToString("dd/MM/yyyy");
+        }
+
 
         /// <summary>
         /// The deleteOrderById method 
@@ -267,7 +282,8 @@ namespace BLL
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    comboBox.Items.Add(dt.Rows[i][1].ToString());
+                    comboBox.Items.Add(dt.Rows[i][0].ToString());
+
                 }
             }
             catch (Exception ex)

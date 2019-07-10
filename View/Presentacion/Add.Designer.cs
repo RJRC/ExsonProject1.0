@@ -309,6 +309,7 @@
             // 
             this.txtAnnotation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAnnotation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtAnnotation.Location = new System.Drawing.Point(101, 436);
             this.txtAnnotation.Name = "txtAnnotation";
             this.txtAnnotation.Size = new System.Drawing.Size(601, 75);

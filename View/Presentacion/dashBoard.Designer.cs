@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chart_salesPerMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -54,11 +52,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lb_startDate = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-
             this.chartComparativeCostsSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartCosts = new System.Windows.Forms.DataVisualization.Charting.Chart();
-
             ((System.ComponentModel.ISupportInitialize)(this.chart_salesPerMonth)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -66,10 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-
             ((System.ComponentModel.ISupportInitialize)(this.chartComparativeCostsSales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartCosts)).BeginInit();
-
             this.SuspendLayout();
             // 
             // chart_salesPerMonth
@@ -77,40 +70,42 @@
             this.chart_salesPerMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart_salesPerMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            chartArea1.Name = "ChartArea1";
-            this.chart_salesPerMonth.ChartAreas.Add(chartArea1);
-            this.chart_salesPerMonth.Location = new System.Drawing.Point(99, 166);
+            chartArea7.AxisX.IsLabelAutoFit = false;
+            chartArea7.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea7.AxisX.MajorGrid.Enabled = false;
+            chartArea7.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisY.IsLabelAutoFit = false;
+            chartArea7.AxisY.LabelStyle.Enabled = false;
+            chartArea7.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea7.AxisY.MajorGrid.Enabled = false;
+            chartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea7.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            chartArea7.Name = "ChartArea1";
+            this.chart_salesPerMonth.ChartAreas.Add(chartArea7);
+            this.chart_salesPerMonth.Location = new System.Drawing.Point(100, 166);
             this.chart_salesPerMonth.Name = "chart_salesPerMonth";
             this.chart_salesPerMonth.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart_salesPerMonth.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Name = "Total ventas";
-            this.chart_salesPerMonth.Series.Add(series1);
-            this.chart_salesPerMonth.Size = new System.Drawing.Size(600, 190);
+            series10.ChartArea = "ChartArea1";
+            series10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series10.IsValueShownAsLabel = true;
+            series10.LabelForeColor = System.Drawing.Color.White;
+            series10.Name = "Total ventas";
+            this.chart_salesPerMonth.Series.Add(series10);
+            this.chart_salesPerMonth.Size = new System.Drawing.Size(600, 220);
             this.chart_salesPerMonth.TabIndex = 0;
             this.chart_salesPerMonth.Text = "salesPerMonth";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.White;
-            title1.Name = "Title1";
-            title1.Text = "Cantidad de ventas";
-            this.chart_salesPerMonth.Titles.Add(title1);
+            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title7.ForeColor = System.Drawing.Color.White;
+            title7.Name = "Title1";
+            title7.Text = "Cantidad de ventas";
+            this.chart_salesPerMonth.Titles.Add(title7);
             // 
             // panel1
             // 
@@ -245,7 +240,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(100, 595);
             this.panel3.TabIndex = 13;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label6
             // 
@@ -263,11 +257,24 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(150)))));
+            this.panel4.Controls.Add(this.lb_startDate);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Location = new System.Drawing.Point(0, 49);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(600, 30);
             this.panel4.TabIndex = 35;
+            // 
+            // lb_startDate
+            // 
+            this.lb_startDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_startDate.AutoSize = true;
+            this.lb_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lb_startDate.ForeColor = System.Drawing.Color.White;
+            this.lb_startDate.Location = new System.Drawing.Point(409, 7);
+            this.lb_startDate.Name = "lb_startDate";
+            this.lb_startDate.Size = new System.Drawing.Size(108, 20);
+            this.lb_startDate.TabIndex = 26;
+            this.lb_startDate.Text = "Datos desde: ";
             // 
             // panel5
             // 
@@ -280,71 +287,71 @@
             // 
             // chartComparativeCostsSales
             // 
+            this.chartComparativeCostsSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chartComparativeCostsSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            chartArea2.Name = "ChartArea1";
-            this.chartComparativeCostsSales.ChartAreas.Add(chartArea2);
-            legend1.Name = "Legend1";
-
-            this.chartComparativeCostsSales.Legends.Add(legend1);
-            this.chartComparativeCostsSales.Location = new System.Drawing.Point(155, 579);
+            chartArea8.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea8.AxisX.IsLabelAutoFit = false;
+            chartArea8.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisX.MajorGrid.Enabled = false;
+            chartArea8.AxisX.TitleForeColor = System.Drawing.Color.White;
+            chartArea8.AxisX2.TitleForeColor = System.Drawing.Color.Blue;
+            chartArea8.AxisY.LabelStyle.Enabled = false;
+            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisY.MajorGrid.Enabled = false;
+            chartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisY.TitleForeColor = System.Drawing.Color.White;
+            chartArea8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            chartArea8.Name = "ChartArea1";
+            this.chartComparativeCostsSales.ChartAreas.Add(chartArea8);
+            legend4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            legend4.ForeColor = System.Drawing.Color.White;
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            legend4.TitleForeColor = System.Drawing.Color.White;
+            this.chartComparativeCostsSales.Legends.Add(legend4);
+            this.chartComparativeCostsSales.Location = new System.Drawing.Point(100, 375);
             this.chartComparativeCostsSales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chartComparativeCostsSales.Name = "chartComparativeCostsSales";
-
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.IsValueShownAsLabel = true;
-            series2.LabelForeColor = System.Drawing.Color.Blue;
-            series2.Legend = "Legend1";
-
-            series2.Name = "Costos";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.IsValueShownAsLabel = true;
-            series3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series3.Legend = "Legend1";
-            series3.Name = "Ventas";
-            this.chartComparativeCostsSales.Series.Add(series2);
-            this.chartComparativeCostsSales.Series.Add(series3);
-            this.chartComparativeCostsSales.Size = new System.Drawing.Size(516, 322);
+            this.chartComparativeCostsSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartComparativeCostsSales.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(214)))), ((int)(((byte)(148))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))))};
+            series11.ChartArea = "ChartArea1";
+            series11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series11.IsValueShownAsLabel = true;
+            series11.LabelForeColor = System.Drawing.Color.White;
+            series11.Legend = "Legend1";
+            series11.Name = "Ventas";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series12.IsValueShownAsLabel = true;
+            series12.LabelForeColor = System.Drawing.Color.White;
+            series12.Legend = "Legend1";
+            series12.Name = "Costos";
+            this.chartComparativeCostsSales.Series.Add(series11);
+            this.chartComparativeCostsSales.Series.Add(series12);
+            this.chartComparativeCostsSales.Size = new System.Drawing.Size(632, 220);
             this.chartComparativeCostsSales.TabIndex = 15;
             this.chartComparativeCostsSales.Text = "CostAndSale";
-
-            // 
-            this.chartCosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            chartArea3.Name = "ChartArea1";
-
-            this.chartCosts.ChartAreas.Add(chartArea3);
-            legend2.Name = "Legend1";
-            this.chartCosts.Legends.Add(legend2);
-            this.chartCosts.Location = new System.Drawing.Point(692, 571);
-            this.chartCosts.Name = "chartCosts";
-            this.chartCosts.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series4.BorderColor = System.Drawing.Color.Yellow;
-
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Funnel;
-            series4.Color = System.Drawing.Color.Yellow;
-            series4.IsValueShownAsLabel = true;
-            series4.Legend = "Legend1";
-
-            series4.Name = "Costos";
-            series4.ShadowColor = System.Drawing.Color.Black;
-            this.chartCosts.Series.Add(series4);
-            this.chartCosts.Size = new System.Drawing.Size(358, 330);
-            this.chartCosts.TabIndex = 16;
-            this.chartCosts.Tag = "";
-            this.chartCosts.Text = "chartCosts";
+            title8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title8.ForeColor = System.Drawing.Color.White;
+            title8.Name = "Comparación mensual de consto y ventas";
+            title8.Text = "Comparación mensual de consto y ventas";
+            this.chartComparativeCostsSales.Titles.Add(title8);
             // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-
-            this.ClientSize = new System.Drawing.Size(1200, 915);
-            this.Controls.Add(this.chartCosts);
+            this.ClientSize = new System.Drawing.Size(800, 595);
             this.Controls.Add(this.chartComparativeCostsSales);
-
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -362,10 +369,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-
             ((System.ComponentModel.ISupportInitialize)(this.chartComparativeCostsSales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartCosts)).EndInit();
-
             this.ResumeLayout(false);
 
         }
@@ -390,7 +394,6 @@
         private System.Windows.Forms.Label label4;
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartComparativeCostsSales;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartCosts;
-
+        private System.Windows.Forms.Label lb_startDate;
     }
 }

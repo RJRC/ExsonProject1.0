@@ -322,7 +322,7 @@ namespace ADL
                 conection = conectionADL.GetConnection();
                 conection.Open();
 
-                string storedProcedure = "showAllState";
+                string storedProcedure = "showStatusProcedure";
                 MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -674,6 +674,43 @@ namespace ADL
             }
         }
 
+        /// <summary>
+        /// the method firstOrderADL
+        /// get the date of the first order in the DB
+        /// </summary>
+        /// <returns>
+        /// returns a dataTable with the date of the oldest order in the DB
+        /// </returns>
+        public DataTable firstOrderADL()
+        {
+            try {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "firstOrderProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            
+        }
 
         /// <summary>
         /// The getOrderGeneralReports method 
