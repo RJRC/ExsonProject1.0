@@ -4,15 +4,30 @@ using System.Windows.Forms;
 
 namespace View.Presentacion
 {
+
+    /// <summary>
+    /// The Principal class 
+    /// Contains all methods for the menu in the View Layer.
+    /// </summary>
     public partial class Principal : Form
     {
+
+        /// <summary>
+        /// Builder of Principal class.
+        /// </summary>
         public Principal()
         {
+
             InitializeComponent();
             openForm<Home>();
 
+
         }
 
+        /// <summary>
+        /// The PicClose_Click method 
+        /// Close the window and the application.
+        /// </summary>
         private void PicClose_Click(object sender, EventArgs e)
         {
 
@@ -27,12 +42,20 @@ namespace View.Presentacion
             
         }
 
+        /// <summary>
+        /// The PicMinimize_Click method 
+        /// Minimize the window.
+        /// </summary>
         private void PicMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         
         }
 
+        /// <summary>
+        /// The PicRestore_Click method 
+        /// Minimize the window.
+        /// </summary>
         private void PicRestore_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -40,6 +63,10 @@ namespace View.Presentacion
             picMaximize.Visible = true;
         }
 
+        /// <summary>
+        /// The PicMaximize_Click method 
+        /// Maximize the window.
+        /// </summary>
         private void PicMaximize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -48,11 +75,19 @@ namespace View.Presentacion
         }
 
 
+        /// <summary>
+        /// The BtnAdd_Click method 
+        /// Open a window to add an order.
+        /// </summary>
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             openForm<Add>();
         }
 
+        /// <summary>
+        /// The BtnReports_Click method 
+        /// Open a tab with the report options.
+        /// </summary>
         private void BtnReports_Click(object sender, EventArgs e)
         {
             if (pnDashboard.Visible)
@@ -71,24 +106,39 @@ namespace View.Presentacion
             }
         }
 
+        /// <summary>
+        /// The BtnClient_Click method 
+        /// Open a window with the customers information.
+        /// </summary>
         private void BtnClient_Click(object sender, EventArgs e)
         {
             openForm<Customer>();
         }
 
-
+        /// <summary>
+        /// The BtnHome_Click method 
+        /// Open a window with the orders information.
+        /// </summary>
         private void BtnHome_Click(object sender, EventArgs e)
         {
             openForm<Home>();
         }
 
+
+        /// <summary>
+        /// The BtnGeneralReport_Click method 
+        /// Open a window with the orders information.
+        /// </summary>
         private void BtnGeneralReport_Click(object sender, EventArgs e)
         {
             openForm<Reports>();
         }
 
 
-        //open a new form in the panelFiil
+        /// <summary>
+        /// The openForm method 
+        /// Open a form.
+        /// </summary>
         private void openForm<myForm>()where myForm:Form,new () {
             //find in the colection the form
             Form formPanel=panelFill.Controls.OfType<myForm>().FirstOrDefault();
@@ -122,7 +172,7 @@ namespace View.Presentacion
                     }
                     else if (formPanel.Name == "dashBoard")
                     {
-                        openForm<dashBoard>();
+                        openForm<DashBoard>();
                     }
 
                    
@@ -135,12 +185,23 @@ namespace View.Presentacion
             }
         }
 
+        /// <summary>
+        /// The btnDashboard_Click method 
+        /// Open a window with the dashboard information.
+        /// </summary>
         private void btnDashboard_Click(object sender, EventArgs e)
         {
 
-            openForm<dashBoard>();
-            //dashBoard dashBoard = new dashBoard();
-            //dashBoard.Show();
+            openForm<DashBoard>();
+        }
+
+        /// <summary>
+        /// The pnPrincipal_Paint method 
+        /// 
+        /// </summary>
+        private void pnPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

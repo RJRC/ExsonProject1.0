@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientADL.cs" />
-    <Compile Include="ConectionADL.cs" />
+    <Compile Include="ConnectionADL.cs" />
     <Compile Include="OrderADL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportsADL.cs" />

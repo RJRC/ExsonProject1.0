@@ -3,12 +3,22 @@ using BLL;
 
 namespace View.Presentacion
 {
+    /// <summary>
+    /// The Customer class 
+    /// Contains all methods for the Customer in the View Layer.
+    /// </summary>
     public partial class Customer : Form
     {
 
+        /// <summary>
+        /// Variable with the instance of ClientBLL.
+        /// </summary>
         private ClientBLL clientBLL=new ClientBLL();
-        //private ReportsBLL clientBLL2 = new ReportsBLL();
 
+
+        /// <summary>
+        /// Builder of Customer class.
+        /// </summary>
         public Customer()
         {
             InitializeComponent();
@@ -16,14 +26,23 @@ namespace View.Presentacion
             loadCustomerView();
         }
 
+        /// <summary>
+        /// The loadCustomerView method 
+        /// Load the dgvClients with customers information.
+        /// </summary>
         private void loadCustomerView() {
             dgvClients.DataSource = clientBLL.showClients();
             //dgvClients.DataSource = clientBLL2.totalCostsYear();
         }
 
+
+        /// <summary>
+        /// The DgvClients_CellContentClick method 
+        /// Delete and Modify a customer by id.
+        /// </summary>
         private void DgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id = dgvClients.Rows[e.RowIndex].Cells["Codigo Cliente"].FormattedValue.ToString();
+            string id = dgvClients.Rows[e.RowIndex].Cells["Código"].FormattedValue.ToString();
 
             if (dgvClients.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -52,13 +71,18 @@ namespace View.Presentacion
                     }
                     else
                     {
-                        MessageBox.Show("Ha ocurrido un problema, no se ha podido eliminar el cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ha ocurrido un problema, no se ha podido eliminar el cliente\nNo se puede eliminar un cliente asignado a una orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
+                
             }
         }
 
+        /// <summary>
+        /// The txtFind_TextChanged method 
+        /// Search customers.
+        /// </summary>
         private void txtFind_TextChanged(object sender, System.EventArgs e)
         {
             string textToSearch = txtFind.Text;
@@ -68,5 +92,6 @@ namespace View.Presentacion
                 dgvClients.DataSource = clientBLL.searchClients(textToSearch);
             }
         }
+
     }
 }

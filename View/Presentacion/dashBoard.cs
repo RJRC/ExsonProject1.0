@@ -12,24 +12,42 @@ using BLL;
 
 namespace View.Presentacion
 {
-    public partial class dashBoard : Form
+    /// <summary>
+    /// The DashBoard class 
+    /// Contains all methods for the dashBoard in the View Layer.
+    /// </summary>
+    public partial class DashBoard : Form
     {
 
+        /// <summary>
+        /// Variable with the instance of OrderBLL.
+        /// </summary>
         private OrderBLL bll = new OrderBLL();
+
+        /// <summary>
+        /// Variable with the instance of ReportsBLL.
+        /// </summary>
         private ReportsBLL rll = new ReportsBLL();
 
-        public dashBoard()
+
+        /// <summary>
+        /// Builder of DashBoard class.
+        /// </summary>
+        public DashBoard()
         {
             InitializeComponent();
             methodGenerateGraphic();
             generateLbTotalSales();
             countSales();
             generateLbCostTotal();
-            methodGenerateGraphicCosts();
+            showFirstOrderDate();
             methodGenerateGraphicComparativeCostSale();
         }
 
-
+        /// <summary>
+        /// The methodGenerateGraphic method 
+        /// Generates a graphic with the sales information.
+        /// </summary>
         public void methodGenerateGraphic()
         {
             DataTable dataTableOrder = new DataTable();
@@ -43,20 +61,11 @@ namespace View.Presentacion
             chart_salesPerMonth.Visible = true;
         }
 
-        public void methodGenerateGraphicCosts()
-        {
 
-            DataTable dataTableOrder = new DataTable();
-            dataTableOrder = rll.totalCostsYear();
-
-            chartCosts.Series["Costos"].XValueMember = "Año";
-            chartCosts.Series["Costos"].YValueMembers = "TotalCosto";
-            chartCosts.DataSource = dataTableOrder;
-            chartCosts.DataBind();
-            chartCosts.Visible = true;
-
-        }
-
+        /// <summary>
+        /// The methodGenerateGraphicComparativeCostSale method
+        /// Generates graphics of cost and sales
+        /// </summary>
         public void methodGenerateGraphicComparativeCostSale()
         {
 
@@ -72,6 +81,10 @@ namespace View.Presentacion
 
         }
 
+        /// <summary>
+        /// The generateLbTotalSales method 
+        /// Generates a label with the total of the sales.
+        /// </summary>
         private void generateLbTotalSales()
         {
             DataTable dataTableOrder = new DataTable();
@@ -80,6 +93,10 @@ namespace View.Presentacion
             lb_showTotalSales.Text += dataRow["TotalVentas"].ToString();
         }
 
+        /// <summary>
+        /// The generateLbCostTotal method 
+        /// Generates a label with the cost of the orders.
+        /// </summary>
         private void generateLbCostTotal()
         {
             DataTable dataTableOrder = new DataTable();
@@ -88,8 +105,12 @@ namespace View.Presentacion
             lb_showTotalCost.Text += dataRow["costOrders"].ToString();
         }
 
-        private void countSales()
-        {
+        /// <summary>
+        /// The countSales method 
+        /// Generates a label with the count of the orders.
+        /// </summary>
+        private void countSales() {
+
             DataTable dataTableOrder = new DataTable();
             dataTableOrder = bll.countSalesBLL();
             DataRow dataRow = dataTableOrder.Rows[0];
@@ -97,10 +118,13 @@ namespace View.Presentacion
         }
 
 
-
-        private void chart3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// The showFirstOrderDate method 
+        /// show in a label with the date of the oldest order in the DB
+        /// </summary>
+        private void showFirstOrderDate()
         {
-
+            lb_startDate.Text += bll.firstOrderADL();
         }
     }
 }

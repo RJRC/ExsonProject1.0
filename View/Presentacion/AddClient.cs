@@ -13,13 +13,22 @@ using BLL;
 
 namespace View
 {
+    /// <summary>
+    /// The AddClient class 
+    /// Contains all methods to add a client in the View Layer.
+    /// </summary>
     public partial class AddClient : Form
     {
 
 
-        //private BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        /// <summary>
+        /// Variable with the instance of ClientBLL.
+        /// </summary>
         private ClientBLL clientBLL = new ClientBLL();
 
+        /// <summary>
+        /// Builder of AddClient class.
+        /// </summary>
         public AddClient()
         {
             InitializeComponent();
@@ -31,6 +40,12 @@ namespace View
             txtMail.MaxLength = 50;
         }
 
+        /// <summary>
+        /// Builder of AddClient class.
+        /// </summary>
+        /// <param name="id">
+        /// This is the id of the client to add.
+        /// </param>
         public AddClient(string id)
         {
 
@@ -45,6 +60,9 @@ namespace View
             txtMail.MaxLength = 50;
 
             idLbl.Text = id;
+            lbCodeText.Visible = true;
+            lbTitle.Text = "Modificar Cliente";
+
             txtName.Text = dtcust.Rows[0]["Nombre"].ToString();
             txtLastName1.Text = dtcust.Rows[0][2].ToString();
             txtLastName2.Text = dtcust.Rows[0][3].ToString();
@@ -55,22 +73,6 @@ namespace View
         }
 
 
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -80,48 +82,45 @@ namespace View
         }
 
 
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LbOrderNum_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// The BtnSave_Click method 
+        /// Add or Edit a client.
+        /// </summary>
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-
+            bool isOk=true;
             if (clientBLL.validationEmptyTxt(txtName.Text, txtLastName1.Text, txtLastName2.Text, txtPhone1.Text))
             {
+                isOk = false;
                 MessageBox.Show("Por favor ingrese todos los datos que se solicitan", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (txtPhone1.Text.Length < 8)
             {
+                isOk = false;
                 MessageBox.Show("Verificar campo obligatorio de teléfono 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0") && txtPhone2.Text.Length < 8)
+            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0"))
             {
+                if (txtPhone2.Text.Length < 8)
+                {
+                    isOk = false;
+                    MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo"))
+            {
+                if (!clientBLL.validationEmailFormat(txtMail.Text))
+                {
+                    isOk = false;
+                    MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
 
-            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo") && !clientBLL.validationEmailFormat(txtMail.Text))
-            {
-                MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
+            //if all validations are passed then save or modify the client
+            if (isOk ){
 
                 string id = idLbl.Text;
                 string name = txtName.Text;
@@ -133,38 +132,39 @@ namespace View
 
                 string email = txtMail.Text;
 
-                clientBLL.addOrEditClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email, id);
-
-                this.Close();
-
-                //if (!clientBLL.validationEmailFormat(email))
-                //    MessageBox.Show("El correo no es obligatorio, pero el formato puede ser incorrecto o inexistente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-
-                MessageBox.Show("Cliente agregado con exito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                if (clientBLL.addOrEditClient(name, lastName, lastName2, phoneNumber1, phoneNumber2, email, id))
+                {
+                    this.Close();
+                    if (idLbl.Text == "")
+                    {
+                        MessageBox.Show("Cliente agregado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente modificado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+               
+              
             }
-
-
-
         }
 
 
-
+        /// <summary>
+        /// The BtnCancel_Click method 
+        /// Cancel add or edit a client.
+        /// </summary>
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void AddClient_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// The txtPhone1_KeyPress method 
+        /// Validate the phone1.
+        /// </summary>
         private void txtPhone1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -175,6 +175,10 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// The txtPhone2_KeyPress method 
+        /// Validate the phone2.
+        /// </summary>
         private void txtPhone2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -185,6 +189,10 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// The txtName_KeyPress method 
+        /// Validate the name.
+        /// </summary>
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -195,6 +203,10 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// The txtLastName1_KeyPress method 
+        /// Validate the lastname1.
+        /// </summary>
         private void txtLastName1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -205,6 +217,10 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// The txtLastName2_KeyPress method 
+        /// Validate the lastname2.
+        /// </summary>
         private void txtLastName2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))

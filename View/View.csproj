@@ -70,11 +70,11 @@
     <Compile Include="Presentacion\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\dashBoard.cs">
+    <Compile Include="Presentacion\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\dashBoard.Designer.cs">
-      <DependentUpon>dashBoard.cs</DependentUpon>
+    <Compile Include="Presentacion\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Home.cs">
       <SubType>Form</SubType>
@@ -110,8 +110,8 @@
     <EmbeddedResource Include="Presentacion\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\dashBoard.resx">
-      <DependentUpon>dashBoard.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
