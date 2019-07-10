@@ -16,7 +16,7 @@ namespace ADL
         /// <summary>
         /// Variable with the password information of the database.
         /// </summary>
-        private string PASSWORD = "root";
+        private string PASSWORD = "Tortuguero.2011.";
 
         /// <summary>
         /// Variable with the server information of the database.
