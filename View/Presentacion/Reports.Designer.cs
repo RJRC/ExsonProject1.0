@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -65,7 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(100, 595);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // panel3
             // 
@@ -107,7 +106,6 @@
             this.dtUntil.Name = "dtUntil";
             this.dtUntil.Size = new System.Drawing.Size(180, 29);
             this.dtUntil.TabIndex = 33;
-            this.dtUntil.ValueChanged += new System.EventHandler(this.DtOrderDate_ValueChanged);
             // 
             // label2
             // 
@@ -120,7 +118,6 @@
             this.label2.Size = new System.Drawing.Size(68, 24);
             this.label2.TabIndex = 32;
             this.label2.Text = "Estado";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // label1
             // 
@@ -132,7 +129,6 @@
             this.label1.Size = new System.Drawing.Size(57, 24);
             this.label1.TabIndex = 31;
             this.label1.Text = "Hasta";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // lbOrderNum
             // 
@@ -144,7 +140,6 @@
             this.lbOrderNum.Size = new System.Drawing.Size(65, 24);
             this.lbOrderNum.TabIndex = 29;
             this.lbOrderNum.Text = "Desde";
-            this.lbOrderNum.Click += new System.EventHandler(this.LbOrderNum_Click);
             // 
             // dateSince
             // 
@@ -163,7 +158,6 @@
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(178, 32);
             this.comboStatus.TabIndex = 35;
-            this.comboStatus.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // btnDownload
             // 
@@ -175,7 +169,7 @@
             this.btnDownload.ForeColor = System.Drawing.Color.White;
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
             this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownload.Location = new System.Drawing.Point(565, 553);
+            this.btnDownload.Location = new System.Drawing.Point(279, 553);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(129, 30);
             this.btnDownload.TabIndex = 37;
@@ -195,14 +189,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
@@ -226,7 +220,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(413, 553);
+            this.button1.Location = new System.Drawing.Point(571, 553);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 30);
             this.button1.TabIndex = 39;
@@ -243,7 +237,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(256, 553);
+            this.button2.Location = new System.Drawing.Point(414, 553);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 30);
             this.button2.TabIndex = 40;
@@ -273,7 +267,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reports";
             this.Text = "Reports";
-            this.Load += new System.EventHandler(this.Reports_Load);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

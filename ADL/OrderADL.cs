@@ -61,10 +61,48 @@ namespace ADL
                 Console.WriteLine(ex.ToString());
                 return new DataTable();
             }
+        }
+
+        /// <summary>
+        /// The getOrderFromDB method 
+        /// Get the orders from the database.
+        /// </summary>
+        ///<return>
+        /// Returns a datatable with the orders information.
+        ///</return>
+        public DataTable getOrdersGeneralFromDB()
+        {
+            try
+            {
+                conection = conectionADL.GetConnection();
+                conection.Open();
+
+                string storedProcedure = "showGeneraOrdersProcedure";
+                MySqlCommand cmd = new MySqlCommand(storedProcedure, conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                DataSet ds = new DataSet();
+                DataTable dataTable = new DataTable();
+
+
+                ds.Tables.Add(dataTable);
+                ds.EnforceConstraints = false;
+                dataTable.Load(rdr);
+
+                conection.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new DataTable();
+            }
 
 
         }
-
 
         /// <summary>
         /// The serchOrdersInDB method 

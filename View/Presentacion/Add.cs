@@ -149,7 +149,7 @@ namespace View.Presentacion
                     MessageBox.Show("Ingrese solo números en el campo precio de venta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtlbSalePrice.Text = "";
                 }
-                else if (!provider.Equals("EBAY") && !provider.Equals("AMAZON"))
+                else if (!provider.Equals("eBay") && !provider.Equals("Amazon"))
                 {
                     MessageBox.Show("Seleccione una Compañia", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     cbProvider.Text = "";

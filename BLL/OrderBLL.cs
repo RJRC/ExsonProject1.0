@@ -27,6 +27,18 @@ namespace BLL
         }
 
         /// <summary>
+        /// The showOrders method 
+        /// Show the orders information.
+        /// </summary>
+        ///<return>
+        /// Returns a datatable with the orders information.
+        ///</return>
+        public DataTable showOrdersReports()
+        {
+            return new OrderADL().getOrdersGeneralFromDB();
+        }
+
+        /// <summary>
         /// The showOrderByID method 
         /// Show the orders information by an ID.
         /// </summary>
