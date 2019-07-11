@@ -387,7 +387,6 @@
             this.pnPrincipal.Name = "pnPrincipal";
             this.pnPrincipal.Size = new System.Drawing.Size(800, 595);
             this.pnPrincipal.TabIndex = 4;
-            this.pnPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnPrincipal_Paint);
             // 
             // Principal
             // 

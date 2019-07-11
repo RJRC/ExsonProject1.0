@@ -157,7 +157,7 @@ namespace View.Presentacion
             else
             {
 
-                if (formPanel.Name=="Home"|| formPanel.Name == "Customer"|| formPanel.Name == "dashBoard")
+                if (formPanel.Name=="Home"|| formPanel.Name == "Customer"|| formPanel.Name == "DashBoard" || formPanel.Name == "Reports")
                 {
                     // close the panel and open a new panel with the new data
                     formPanel.Close();
@@ -170,12 +170,16 @@ namespace View.Presentacion
                     {
                         openForm<Customer>();
                     }
-                    else if (formPanel.Name == "dashBoard")
+                    else if (formPanel.Name == "DashBoard")
                     {
                         openForm<DashBoard>();
                     }
+                    else if (formPanel.Name == "Reports")
+                    {
+                        openForm<Reports>();
+                    }
 
-                   
+
 
                 }
                 else
@@ -195,13 +199,6 @@ namespace View.Presentacion
             openForm<DashBoard>();
         }
 
-        /// <summary>
-        /// The pnPrincipal_Paint method 
-        /// 
-        /// </summary>
-        private void pnPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+   
     }
 }

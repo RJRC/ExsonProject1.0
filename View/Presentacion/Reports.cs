@@ -36,6 +36,7 @@ namespace View.Presentacion
         {
             InitializeComponent();
             loadOrderView();
+            showFirstOrderDate();
 
         }
 
@@ -87,6 +88,15 @@ namespace View.Presentacion
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = orderBll.showOrdersReports();
+        }
+
+        /// <summary>
+        /// The showFirstOrderDate method 
+        /// show in a label with the date of the oldest order in the DB
+        /// </summary>
+        private void showFirstOrderDate()
+        {
+            lb_startDate.Text += orderBll.firstOrderADL();
         }
     }
 }
