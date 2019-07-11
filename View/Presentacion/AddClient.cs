@@ -101,22 +101,15 @@ namespace View
                 MessageBox.Show("Verificar campo obligatorio de teléfono 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0"))
+            else if (!txtPhone2.Text.Equals("") && !txtPhone2.Text.Equals("0") && txtPhone2.Text.Length < 8)
             {
-                if (txtPhone2.Text.Length < 8)
-                {
                     isOk = false;
                     MessageBox.Show("Verificar campo de teléfono 2, no es obligatorio, pero se esta intentando ingresar un formato incorrecto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
             }
-            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo"))
+            else if (!txtMail.Text.Equals("") && !txtMail.Text.Equals("Sin Correo") && !clientBLL.validationEmailFormat(txtMail.Text))
             {
-                if (!clientBLL.validationEmailFormat(txtMail.Text))
-                {
                     isOk = false;
                     MessageBox.Show("El correo no es obligatorio, pero el formato es incorrecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                }
             }
 
             //if all validations are passed then save or modify the client

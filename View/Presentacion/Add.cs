@@ -138,8 +138,10 @@ namespace View.Presentacion
                 double costPriceNumber = 0;
                 double SalePriceNumber = 0;
 
-
-                if (!double.TryParse(txtCostPrice.Text, out costPriceNumber))
+                if (cbClient.SelectedIndex == -1) {
+                    MessageBox.Show("Debe seleccionar un cliente del sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if (!double.TryParse(txtCostPrice.Text, out costPriceNumber))
                 {
                     MessageBox.Show("Ingrese solo números en el campo precio de costo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCostPrice.Text = "";
@@ -149,9 +151,9 @@ namespace View.Presentacion
                     MessageBox.Show("Ingrese solo números en el campo precio de venta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtlbSalePrice.Text = "";
                 }
-                else if (!provider.Equals("eBay") && !provider.Equals("Amazon"))
+                else if (cbProvider.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Seleccione una Compañia", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Seleccione una compañia del sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     cbProvider.Text = "";
                 }
                 else if (orderBLL.checkOrderNumber(orderID) && orderUpdate.Equals(""))
@@ -167,27 +169,27 @@ namespace View.Presentacion
                         MessageBox.Show("Seleccione un Estado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     }
-                    else { 
+                    else {
 
-                    try
-                    {
-                        
+                        try
+                        {
 
 
-                        orderBLL.addOrder(orderID, provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber, status);
-                        MessageBox.Show("¡Editado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close();
+                            orderBLL.addOrder(orderID, provider, nameClient, dateOrder, linkProduct, description, annotation, costPriceNumber, SalePriceNumber, status);
+                            MessageBox.Show("¡Editado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Seleccione un cliente o Ingrese uno nuevo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cbClient.Text = "";
-                    }
+                            this.Close();
+
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Seleccione un cliente o Ingrese uno nuevo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            cbClient.Text = "";
+                        }
                     }
                 }
-                else 
+                else
                 {
                     //Add Order
                     try
