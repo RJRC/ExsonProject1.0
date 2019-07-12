@@ -111,7 +111,9 @@ namespace View.Presentacion
         {
             AddClient route = new AddClient();
             route.ShowDialog();
-        
+            cbClient.Items.Clear();
+            clientBLL.fillClientComboBox(cbClient);
+
         }
 
         /// <summary>

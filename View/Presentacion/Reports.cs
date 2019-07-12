@@ -98,5 +98,10 @@ namespace View.Presentacion
         {
             lb_startDate.Text += orderBll.firstOrderADL();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

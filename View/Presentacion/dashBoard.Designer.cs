@@ -341,8 +341,8 @@
             this.chartComparativeCostsSales.Text = "CostAndSale";
             title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title2.ForeColor = System.Drawing.Color.White;
-            title2.Name = "Comparación mensual de consto y ventas";
-            title2.Text = "Comparación mensual de consto y ventas";
+            title2.Name = "Comparación mensual de costo y ventas";
+            title2.Text = "Comparación mensual de costo y ventas";
             this.chartComparativeCostsSales.Titles.Add(title2);
             // 
             // DashBoard
