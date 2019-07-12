@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using BLL;
 
 namespace View.Presentacion
@@ -42,41 +43,43 @@ namespace View.Presentacion
         /// </summary>
         private void DgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id = dgvClients.Rows[e.RowIndex].Cells["Código"].FormattedValue.ToString();
+            
+                string id = dgvClients.Rows[e.RowIndex].Cells["Código"].FormattedValue.ToString();
 
-            if (dgvClients.Columns[e.ColumnIndex].Name == "Edit")
-            {
-                dgvClients.CurrentRow.Selected = true;
-              
-                AddClient route = new AddClient(id);
-                route.ShowDialog();
-
-                loadCustomerView();
-
-            }
-
-            if (dgvClients.Columns[e.ColumnIndex].Name == "Delete")
-            {
-                dgvClients.CurrentRow.Selected = true;
-
-                DialogResult dialogResult = MessageBox.Show("Está a punto de eliminar a " + dgvClients.Rows[e.RowIndex].Cells["Nombre"].FormattedValue.ToString() + ".\n" +
-                    "¿Está seguro de que quiere continuar?", "¿Eliminar Cliente?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.Yes)
+                if (dgvClients.Columns[e.ColumnIndex].Name == "Edit")
                 {
-                    if (clientBLL.deleteClientBLL(id))
+                    dgvClients.CurrentRow.Selected = true;
+
+                    AddClient route = new AddClient(id);
+                    route.ShowDialog();
+
+                    loadCustomerView();
+
+                }
+
+                if (dgvClients.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    dgvClients.CurrentRow.Selected = true;
+
+                    DialogResult dialogResult = MessageBox.Show("Está a punto de eliminar a " + dgvClients.Rows[e.RowIndex].Cells["Nombre"].FormattedValue.ToString() + ".\n" +
+                        "¿Está seguro de que quiere continuar?", "¿Eliminar Cliente?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        loadCustomerView();
-                        MessageBox.Show("Eliminado con éxito", "Éxito", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ha ocurrido un problema, no se ha podido eliminar el cliente\nNo se puede eliminar un cliente asignado a una orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (clientBLL.deleteClientBLL(id))
+                        {
+                            loadCustomerView();
+                            MessageBox.Show("Eliminado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un problema, no se ha podido eliminar el cliente\nNo se puede eliminar un cliente asignado a una orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
 
                 }
-                
-            }
+            
         }
 
         /// <summary>

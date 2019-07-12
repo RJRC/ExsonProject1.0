@@ -296,7 +296,7 @@ namespace BLL
             string newFinishDate = finishDate.Year + "-" + finishDate.Month + "-" + finishDate.Day;
             if (status.Equals("Todos"))
             {
-
+                
                 return new OrderADL().getOrderFromDBWithFilterWithOutStatus(newStartDate, newFinishDate);
             }
             else
@@ -333,12 +333,10 @@ namespace BLL
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     comboBox.Items.Add(dt.Rows[i][0].ToString());
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
